@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="data-export.xsd">
+  <metadata>
+    <export-date>2024-01-15T10:30:00Z</export-date>
+    <version>1.0.0</version>
+    <source>India Tech Atlas</source>
+    <format-version>1.0</format-version>
+  </metadata>
+  
+  <logbook-entries>
+    <!-- Logbook entries will be populated dynamically -->
+    <!-- Example structure:
+    <entry>
+      <id>1</id>
+      <name>Student Name</name>
+      <class>Grade 9</class>
+      <timestamp>2024-01-15T10:30:00Z</timestamp>
+    </entry>
+    -->
+  </logbook-entries>
+  
+  <statistics>
+    <total-entries>0</total-entries>
+    <total-visits>0</total-visits>
+    <games-played>0</games-played>
+    <time-spent>0</time-spent>
+  </statistics>
+  
+  <game-stats>
+    <!-- Game statistics will be populated dynamically -->
+    <!-- Example structure:
+    <game>
+      <name>memory3d</name>
+      <plays>10</plays>
+      <best-score>150</best-score>
+      <average-score>120</average-score>
+    </game>
+    -->
+  </game-stats>
+  
+  <page-visits>
+    <!-- Page visit statistics will be populated dynamically -->
+    <!-- Example structure:
+    <page>
+      <url>index.html</url>
+      <visits>50</visits>
+      <last-visit>2024-01-15T10:30:00Z</last-visit>
+    </page>
+    -->
+  </page-visits>
+</data-export>
+

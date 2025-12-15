@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Past Hub • Indian Tech Roots</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#00d4ff" />
+    <link rel="stylesheet" href="critical-styles.css" />
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>        
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Legacy • R&D • Grit</p>
+          <h1>Past Hub: Foundations of Indian Tech</h1>
+          <p>
+            Explore the institutions, policies, and pioneers that seeded India’s computing,
+            electronics, and space capabilities. Tap on milestones, compare labs, and mix
+            influences to see how the groundwork was laid.
+          </p>
+          <div class="hero__actions">
+            <a class="btn primary" href="index.html">Back to Atlas</a>
+            <a class="btn secondary" href="#heritage">See Milestones</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="heritage" class="panel">
+        <div class="panel__header">
+          <h2>Heritage Explorer</h2>
+          <p>Select a milestone to reveal its story.</p>
+        </div>
+        <div class="era-grid">
+          <div class="era-nav" id="past-nav"></div>
+          <div class="era-details" id="past-detail">
+            Choose a milestone to begin.
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Lab Lineage Comparator</h2>
+          <p>Toggle labs to see their stacked contributions.</p>
+        </div>
+        <div class="era-toggle" id="lab-toggle"></div>
+        <div class="era-projection" id="lab-output">
+          Activate a lab to view its ripple effects.
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Archive Stats</h2>
+          <p>Glance at formative indicators.</p>
+        </div>
+        <div class="era-grid">
+          <article class="era-stat">
+            <span>Analog Computers Built</span>
+            <strong>10+ (1950s)</strong>
+          </article>
+          <article class="era-stat">
+            <span>Electronics R&D spend</span>
+            <strong>₹400 Cr (1970s)</strong>
+          </article>
+          <article class="era-stat">
+            <span>Software Export Units</span>
+            <strong>200+ (1980s)</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel picture-panel">
+        <div class="panel__header">
+          <h2>Past Hub Picture Slots</h2>
+          <p>Collect imagery that reinforces each heritage storyline.</p>
+        </div>
+        <div class="picture-slot-grid">
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload lab photo">
+              <img src="Pictures/past1.png" alt="Slot A — archival labs, oscilloscopes, punch cards, and research notebooks">
+            </div>
+          </article>
+         </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Past Hub • Inspired by India’s scientific pioneers</p>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script>
+      const pastMilestones = [
+        {
+          title: "TIFR Cosmic-Ray Lab",
+          summary:
+            "The TIFR Cosmic-Ray Laboratory, founded in 1945 under Homi J. Bhabha with support from the Sir Dorabji Tata Trust, was India’s first dedicated research unit in high-energy physics, initially based at the Indian Institute of Science in Bangalore before moving to Bombay, where it became the nucleus of the Tata Institute of Fundamental Research; its pioneering studies of cosmic rays not only advanced particle physics in India but also laid the foundation for TIFR’s later expansion into nuclear, astrophysics, and space sciences, symbolizing the country’s early commitment to building world-class scientific institutions.",
+        },
+        {
+          title: "ECIL & BEL Factories",
+          summary:
+            "Electronics Corporation of India Limited (ECIL), founded in 1967 in Hyderabad under the Department of Atomic Energy, and Bharat Electronics Limited (BEL), established in 1954 in Bangalore under the Ministry of Defence, are two pioneering Indian public sector enterprises whose factories became the backbone of the nation’s strategic electronics; while ECIL specialized in nuclear instrumentation, industrial automation, computers, and communication systems to support atomic energy and civilian needs, BEL focused on defence electronics with factories across India producing radars, missile systems, avionics, and electronic warfare equipment, and together these enterprises symbolized India’s post-independence drive for technological self-reliance in critical sectors.",
+        },
+        {
+          title: "ISRO’s SLV-3",
+          summary:
+            "ISRO’s Satellite Launch Vehicle-3 (SLV-3), developed in the late 1970s, was India’s first experimental satellite launch vehicle and marked the country’s entry into spacefaring nations. It was an all-solid, four-stage rocket, 22 meters tall and weighing 17 tonnes, capable of placing a 40 kg payload into low Earth orbit. The first flight in August 1979 was only partially successful, but on July 18, 1980, SLV-3 successfully launched the Rohini Satellite (RS-1) from Sriharikota, making India the sixth nation to achieve satellite launch capability. Two more launches followed in 1981 and 1983, orbiting Rohini satellites with remote sensing instruments, and though the program was retired after four flights, SLV-3 laid the technological foundation for India’s later launch vehicles like the ASLV and PSLV.",
+        },
+        {
+          title: "DoE Policy Push",
+          summary:
+            "India’s Department of Energy (DoE) policy push focuses on accelerating renewable energy adoption and reducing dependence on fossil fuels, with major initiatives like the National Solar Mission, large-scale wind energy programs, and the Green Hydrogen Mission; together these efforts aim to secure energy independence, meet climate commitments, and position India as a global leader in clean technologies while ensuring sustainable growth.",
+        },
+        {
+          title: "CDOT Rural Exchanges",
+          summary:
+            "C-DOT’s Rural Exchanges, introduced in the mid-1980s, were small, rugged, and cost-effective digital telephone exchanges designed to bring connectivity to India’s villages; by enabling reliable telecom services in remote areas, they revolutionized rural communication, reduced dependence on manual systems, and laid the foundation for India’s rapid expansion of its telecom network in the decades that followed.",
+        },
+      ];
+
+      const labImpacts = {
+        tifr:
+          "TIFR: Core research, mathematicians, and hardware prototypes seeded national labs and IIT curricula.",
+        isro:
+          "ISRO: Systems engineering mindset, supplier ecosystems, and telemetry software matured simultaneously.",
+        cdac:
+          "C-DAC: PARAM supercomputers broke import barriers and cultivated HPC talent pools across universities.",
+        stpi:
+          "STPI: Satellite links plus policy incentives birthed export-ready software units ahead of internet liberalisation.",
+      };
+
+      const navRoot = document.getElementById("past-nav");
+      const detailRoot = document.getElementById("past-detail");
+
+      pastMilestones.forEach((item, index) => {
+        const btn = document.createElement("button");
+        btn.textContent = item.title;
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll("#past-nav button")
+            .forEach((el) => el.classList.remove("is-active"));
+          btn.classList.add("is-active");
+          detailRoot.innerHTML = `
+            <h3>${item.title}</h3>
+            <p>${item.summary}</p>
+          `;
+        });
+        if (index === 0) {
+          btn.classList.add("is-active");
+          detailRoot.innerHTML = `
+            <h3>${item.title}</h3>
+            <p>${item.summary}</p>
+          `;
+        }
+        navRoot.appendChild(btn);
+      });
+
+      const labToggle = document.getElementById("lab-toggle");
+      const labOutput = document.getElementById("lab-output");
+
+      Object.entries(labImpacts).forEach(([key, text]) => {
+        const btn = document.createElement("button");
+        btn.textContent = key.toUpperCase();
+        btn.addEventListener("click", () => {
+          btn.classList.toggle("is-active");
+          updateLabOutput();
+        });
+        labToggle.appendChild(btn);
+      });
+
+      function updateLabOutput() {
+        const activeKeys = Array.from(
+          labToggle.querySelectorAll("button.is-active")
+        ).map((btn) => btn.textContent.toLowerCase());
+
+        if (!activeKeys.length) {
+          labOutput.textContent = "Activate a lab to view its ripple effects.";
+          return;
+        }
+
+        const narrative = activeKeys
+          .map((key) => labImpacts[key])
+          .join(" ");
+        labOutput.textContent = narrative;
+      }
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js').catch(() => {});
+      }
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Term Scrambler • Games Lab</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Vocabulary • Speed • Focus</p>
+          <h1>Term Scrambler</h1>
+          <p>
+            Unscramble iconic Indian tech, policy, and space terms before the streak resets. Perfect for quick warmups or
+            lightning quiz rounds.
+          </p>
+          <div class="hero__actions">
+            <a class="btn primary" href="games.html">Back to Games Lab</a>
+            <button class="btn secondary" id="term-new">New Scramble</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel--games">
+        <div class="panel__header">
+          <h2>Scramble Arena</h2>
+          <p>Guess the term, keep the streak alive, and push your best score.</p>
+        </div>
+        <div class="games-grid">
+          <article class="game">
+            <div class="game__header">
+              <h3>Current Puzzle</h3>
+            </div>
+            <div class="game__body">
+              <p id="term-scramble" class="term-scramble">— — —</p>
+              <input
+                type="text"
+                id="term-input"
+                class="term-input"
+                placeholder="Type the correct term"
+                autocomplete="off"
+              />
+              <div class="term-actions">
+                <button class="btn primary" id="term-submit">Submit Guess</button>
+                <button class="btn secondary" id="term-skip">Skip</button>
+              </div>
+              <p id="term-feedback" class="game__feedback"></p>
+            </div>
+          </article>
+          <article class="game">
+            <div class="game__header">
+              <h3>Scoreboard</h3>
+            </div>
+            <div class="game__body scoreboard">
+              <div>
+                <span>Current Streak</span>
+                <strong id="term-score">0</strong>
+              </div>
+              <div>
+                <span>Best Streak</span>
+                <strong id="term-best">0</strong>
+              </div>
+              <div>
+                <span>Total Correct</span>
+                <strong id="term-correct">0</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Term Scrambler • A Games Lab sprint</p>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script src="terms.js"></script>
+  </body>
+</html>
+

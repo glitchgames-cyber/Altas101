@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantum Collapse • Games Lab</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Collapse • Predict • Hope</p>
+          <h1>Quantum Collapse</h1>
+          <p>
+            Somewhere in the vacuum, a hidden combo of phase, spin, corridor code, and frequency keeps India's
+            quantum repeater stable. You get only 3 shots (reduces with difficulty) and a 60-second timer to guess the exact configuration.
+            Odds per attempt: 1 in 11,616. Difficulty increases with each win. Ready?
+          </p>
+          <div class="hero__actions">
+            <a class="btn primary" href="games.html">Back to Games Lab</a>
+            <button class="btn secondary" id="collapse-reset">Reset Simulation</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel--games">
+        <div class="panel__header">
+          <h2>Stability Console</h2>
+          <p>Select one option from each column, then fire the collapse attempt. Time is ticking!</p>
+        </div>
+        <div class="games-grid">
+          <article class="game">
+            <div class="game__body">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                <div>
+                  <span style="color: var(--muted); font-size: 0.9rem;">Difficulty: </span>
+                  <strong id="difficulty-level" style="color: var(--accent);">Level 1</strong>
+                </div>
+                <div>
+                  <span style="color: var(--muted); font-size: 0.9rem;">Time: </span>
+                  <strong id="collapse-timer" style="color: var(--accent-alt);">60s</strong>
+                </div>
+              </div>
+              
+              <label for="difficulty-select">Select Difficulty Level</label>
+              <select id="difficulty-select">
+                <option value="1">Level 1 - Beginner (5 attempts, 60s)</option>
+                <option value="2">Level 2 - Intermediate (4 attempts, 50s)</option>
+                <option value="3">Level 3 - Advanced (3 attempts, 40s)</option>
+                <option value="4">Level 4 - Expert (2 attempts, 30s)</option>
+                <option value="5">Level 5 - Master (1 attempt, 20s)</option>
+              </select>
+              
+              <label for="phase-select">Phase Alignment</label>
+              <select id="phase-select"></select>
+
+              <label for="spin-select">Spin Orientation</label>
+              <select id="spin-select"></select>
+
+              <label for="corridor-select">Corridor Code</label>
+              <select id="corridor-select"></select>
+
+              <label for="frequency-select">Frequency Resonance</label>
+              <select id="frequency-select"></select>
+
+              <button class="btn primary" id="collapse-fire">Attempt Collapse</button>
+              <p id="collapse-feedback" class="game__feedback"></p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Mission Metrics</h2>
+        </div>
+        <div class="era-grid">
+          <article class="era-stat">
+            <span>Attempts Left</span>
+            <strong id="collapse-attempts">3</strong>
+          </article>
+          <article class="era-stat">
+            <span>Successful Collapses</span>
+            <strong id="collapse-wins">0</strong>
+          </article>
+          <article class="era-stat">
+            <span>Failed Runs</span>
+            <strong id="collapse-losses">0</strong>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Quantum Collapse • Practically impossible, still addictive</p>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script src="impossible.js"></script>
+  </body>
+</html>
+

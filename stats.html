@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistics • India Tech Atlas</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#00d4ff" />
+    <link rel="stylesheet" href="critical-styles.css" />
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
+    <style>
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+      .stat-card {
+        padding: 1.5rem;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        background: var(--card);
+        text-align: center;
+      }
+      .stat-value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin: 0.5rem 0;
+      }
+      .stat-label {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .chart-container {
+        margin: 2rem 0;
+        padding: 1.5rem;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        background: var(--card);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <a href="stats.html">Statistics</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Analytics • Insights • Progress</p>
+          <h1>Statistics Dashboard</h1>
+          <p>
+            View your usage statistics, learning progress, and insights about
+            your journey through India Tech Atlas.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Overview</h2>
+        </div>
+        <div class="stats-grid" id="stats-grid">
+          <!-- Stats will be loaded here -->
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Page Visits</h2>
+        </div>
+        <div class="chart-container">
+          <canvas id="visits-chart" width="400" height="200"></canvas>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Game Statistics</h2>
+        </div>
+        <div class="chart-container">
+          <div id="game-stats">
+            <!-- Game stats will be loaded here -->
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Actions</h2>
+        </div>
+        <div class="hero__actions">
+          <button class="btn primary" id="export-stats">Export JSON</button>
+          <button class="btn secondary" id="export-stats-docx">Export DOCX</button>
+          <button class="btn secondary" id="export-stats-xlsx">Export XLSX</button>
+          <button class="btn secondary" id="export-stats-xml">Export XML</button>
+          <button class="btn secondary" id="reset-stats">Reset Statistics</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Statistics • Track your progress on India Tech Atlas</p>
+    </footer>
+
+    <!-- Export Libraries -->
+    <script src="https://unpkg.com/docx@7.8.2/build/index.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+    
+    <script src="theme-toggle.js"></script>
+    <script type="module">
+      import { exportStatsToDocx } from './export-docx.js';
+      import { exportStatsToXlsx } from './export-xlsx.js';
+      import { exportStatsToXML } from './export-xml.js';
+      
+      document.getElementById('export-stats-docx')?.addEventListener('click', exportStatsToDocx);
+      document.getElementById('export-stats-xlsx')?.addEventListener('click', exportStatsToXlsx);
+      document.getElementById('export-stats-xml')?.addEventListener('click', exportStatsToXML);
+    </script>
+    <script src="stats.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js').catch(() => {});
+      }
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circuit Puzzle • Games Lab</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .puzzle-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.5rem;
+        max-width: 500px;
+        margin: 2rem auto;
+      }
+      
+      .puzzle-cell {
+        aspect-ratio: 1;
+        border: 2px solid var(--border);
+        border-radius: 8px;
+        background: var(--card);
+        cursor: pointer;
+        position: relative;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+      
+      .puzzle-cell:hover {
+        border-color: var(--accent);
+        transform: scale(1.05);
+      }
+      
+      .puzzle-cell.active {
+        background: var(--accent);
+        color: var(--bg);
+        border-color: var(--accent);
+      }
+      
+      .puzzle-cell.locked {
+        background: var(--accent-alt);
+        color: var(--bg);
+        border-color: var(--accent-alt);
+        cursor: not-allowed;
+      }
+      
+      .puzzle-cell.error {
+        background: #e74c3c;
+        animation: shake 0.3s;
+      }
+      
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        75% { transform: translateX(5px); }
+      }
+      
+      .circuit-line {
+        position: absolute;
+        background: var(--accent);
+        pointer-events: none;
+        z-index: 1;
+      }
+      
+      .circuit-line.horizontal {
+        height: 4px;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      
+      .circuit-line.vertical {
+        width: 4px;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Logic • Path • Connection</p>
+          <h1>Circuit Puzzle</h1>
+          <p>
+            Connect the power source to the target by activating cells. Each cell affects its neighbors.
+            Find the correct path through the circuit grid. Think strategically!
+          </p>
+          <div class="hero__actions">
+            <a class="btn primary" href="games.html">Back to Games Lab</a>
+            <button class="btn secondary" id="puzzle-reset">New Puzzle</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel--games">
+        <div class="panel__header">
+          <h2>Circuit Grid</h2>
+          <p>Click cells to activate them. Connect the power source (top-left) to the target (bottom-right).</p>
+        </div>
+        
+        <div class="game-stats" style="display: flex; justify-content: space-around; margin: 1.5rem 0; flex-wrap: wrap; gap: 1rem;">
+          <div class="stat-item">
+            <div class="stat-value" id="puzzle-level">1</div>
+            <div class="stat-label">Level</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="puzzle-moves">0</div>
+            <div class="stat-label">Moves</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="puzzle-hints">3</div>
+            <div class="stat-label">Hints</div>
+          </div>
+          <div class="stat-item" id="timer-container" style="display: none;">
+            <div class="stat-value" id="puzzle-timer">--</div>
+            <div class="stat-label">Time</div>
+          </div>
+        </div>
+
+        <div class="puzzle-grid" id="puzzle-grid"></div>
+        
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <button class="btn secondary" id="puzzle-hint" style="margin-right: 0.5rem;">Use Hint</button>
+          <button class="btn secondary" id="puzzle-check">Check Solution</button>
+        </div>
+        
+        <p id="puzzle-feedback" class="game__feedback" style="text-align: center; margin-top: 1.5rem;"></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Circuit Puzzle • Connect the path</p>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script src="puzzle.js"></script>
+  </body>
+</html>
+

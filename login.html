@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Logbook • India Tech Atlas</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#00d4ff" />
+    <link rel="stylesheet" href="critical-styles.css" />
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html" aria-current="page">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Mentor • Attendance • Notes</p>
+          <h1>Student Logbook Capture</h1>
+          <p>
+            Use this lightweight form to log every student interaction. Each entry stores the student’s name,
+            class, and timestamp locally on this device so you can review it later inside the encrypted vault.
+          </p>
+          <div class="hero__actions">
+            <a class="btn secondary" href="index.html">Back to Atlas</a>
+            <a class="btn primary" href="#logbook-form">Start Recording</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="logbook-form">
+        <div class="panel__header">
+          <h2>Quick Entry Form</h2>
+          <p>Capture the student’s name & class and we’ll store it securely in local storage.</p>
+        </div>
+        <form class="logbook-form" id="student-log-form">
+          <label>
+            Student’s Name
+            <input type="text" id="student-name" name="studentName" placeholder="e.g, Shreyansh Pillai" required />
+          </label>
+          <label>
+            Class
+            <input type="text" id="student-class" name="studentClass" placeholder="e.g, Grade 7 · Section D" required />
+          </label>
+          <button type="submit" class="btn primary">Save Log Entry</button>
+        </form>
+        <p class="logbook-alert" id="log-alert" role="status"></p>
+        <div class="logbook-summary">
+          <p>Total entries on this device: <strong id="log-total">0</strong></p>
+          <p style="color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem;">
+            Login details are stored securely and are not displayed here for privacy.
+            Access the secure vault to view all entries.
+          </p>
+          <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button type="button" id="export-docx-btn" class="btn btn--small secondary">📄 Export DOCX</button>
+            <button type="button" id="export-xlsx-btn" class="btn btn--small secondary">📊 Export XLSX</button>
+            <button type="button" id="export-xml-btn" class="btn btn--small secondary">📋 Export XML</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel picture-panel">
+        <div class="picture-slot-grid">
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload portrait">
+              <img src="Pictures/login1.jpg" alt="Drop a portrait photo or paste a link here">
+            </div>
+           </article>
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload achievement photo">
+              <img src="Pictures/login2.png" alt="Reserve this slot for certificates, artwork, or project snapshots">
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Need the full list?</h2>
+          <p>The secure vault shows every record with serial numbers and totals once you enter the password.</p>
+        </div>
+        <a class="btn primary" href="vault.html">Open Secure Vault</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>Student Logbook • Private to your device</p>
+    </footer>
+
+    <!-- Export Libraries -->
+    <script src="https://unpkg.com/docx@7.8.2/build/index.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+    
+    <script src="theme-toggle.js"></script>
+    <script type="module">
+      import { exportLogbookToDocx } from './export-docx.js';
+      import { exportLogbookToXlsx } from './export-xlsx.js';
+      import { exportLogbookToXML } from './export-xml.js';
+      
+      document.getElementById('export-docx-btn')?.addEventListener('click', exportLogbookToDocx);
+      document.getElementById('export-xlsx-btn')?.addEventListener('click', exportLogbookToXlsx);
+      document.getElementById('export-xml-btn')?.addEventListener('click', exportLogbookToXML);
+    </script>
+    <script src="logbook.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js').catch(() => {});
+      }
+    </script>
+  </body>
+</html>
+

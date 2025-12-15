@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Grow a Garden • Games Lab</title>
+    <link rel="stylesheet" href="critical-styles.css">
+    <link rel="stylesheet" href="garden.css">
+  </head>
+  <body>
+    <header class="site-nav"><a class="logo" href="index.html">India Tech Atlas</a></header>
+    <main class="garden-main">
+      <section class="panel">
+        <div class="hero">
+          <h1>Grow a Garden</h1>
+          <p>Hoe soil, plant seeds, water plants, and harvest — grow a thriving garden. Saves automatically.</p>
+        </div>
+
+        <div class="game-area">
+          <canvas id="garden-canvas" tabindex="0" aria-label="Garden canvas"></canvas>
+          <div class="hud">
+            <div class="stats">Coins: <span id="coins">0</span> &nbsp; XP: <span id="xp">0</span></div>
+            <div id="inventory" class="inventory"></div>
+            <div class="controls">Hotbar: <span id="hotbar"></span></div>
+            <div class="actions">
+              <button id="save-btn" class="btn">Save</button>
+              <button id="reset-btn" class="btn">Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="help">
+          <strong>Controls:</strong> Left-click to use selected tool. Number keys 1-3 to change hotbar. <em>Hoe</em> to till, <em>Seed</em> to plant, <em>Water</em> to water.
+        </div>
+      </section>
+    </main>
+
+    <footer>Grow a Garden — educational sandbox</footer>
+
+    <script src="garden-game.js"></script>
+  </body>
+</html>

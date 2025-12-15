@@ -1,0 +1,24 @@
+{
+  "name": "india-tech-atlas",
+  "version": "1.0.0",
+  "description": "Interactive web application exploring India's technology ecosystem",
+  "main": "index.html",
+  "scripts": {
+    "start": "php -S localhost:8000",
+    "test": "echo \"No tests specified\" && exit 0",
+    "build": "echo \"No build process needed\" && exit 0"
+  },
+  "keywords": [
+    "india",
+    "tech",
+    "atlas",
+    "interactive",
+    "education",
+    "games"
+  ],
+  "author": "India Tech Atlas Team",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
+

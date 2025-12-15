@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Agriculture Game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: #c8f1ce;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      font-family: monospace;
+      overflow: hidden;
+      padding-top: 100px;
+      /* space for stats */
+    }
+
+    #stats {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px;
+      border-radius: 10px;
+      color: white;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-around;
+      z-index: 5;
+    }
+
+    #timer-bar {
+      position: fixed;
+      top: 60px;
+      left: 10px;
+      right: 10px;
+      height: 15px;
+      background: #555;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    #timer-fill {
+      height: 100%;
+      width: 100%;
+      background: gold;
+      transition: width 0.2s linear;
+    }
+
+    canvas {
+      background: #9ddb9f;
+      border: 2px solid #2f6e3f;
+      border-radius: 4px;
+      cursor: none;
+    }
+
+    #intro {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #9ddb9f;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 10;
+    }
+
+    #intro h1 {
+      font-size: 48px;
+      color: #2f6e3f;
+      margin-bottom: 20px;
+    }
+
+    #intro p {
+      font-size: 16px;
+      margin: 5px 40px;
+      color: #2f6e3f;
+    }
+
+    #intro button {
+      font-size: 24px;
+      padding: 10px 30px;
+      border: none;
+      border-radius: 6px;
+      background: #2f6e3f;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #intro button:hover {
+      background: #3f8f4f;
+    }
+
+    #gradeOverlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 20;
+      color: gold;
+      font-size: 48px;
+      display: none;
+    }
+
+    #gradeOverlay span {
+      font-size: 32px;
+      margin-top: 20px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="intro">
+    <h1>🌱 Agriculture Game 🌱</h1>
+    <p>Objective: Grow all crops to maturity within 60 seconds.</p>
+    <p>W/A/S/D or Arrow Keys = Move | Left Click / Space = Grow Plant | Right Click = Reset Tile</p>
+    <button onclick="startGame()">Start Farming</button>
+  </div>
+
+  <div id="stats">
+    <div id="fps">FPS: 0</div>
+    <div id="time">Time: 60s</div>
+    <div id="grown">Grown: 0/128</div>
+    <div id="tile">Tile: Grass</div>
+    <div id="objective">Grow all crops 🌾</div>
+  </div>
+
+  <div id="timer-bar">
+    <div id="timer-fill"></div>
+  </div>
+  <canvas id="game" width="640" height="320"></canvas>
+
+  <div id="gradeOverlay">
+    <div id="gradeText">🌾 YOU WIN! 🌾</div>
+    <span id="gradePercent"></span>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+
+    // Grid: 8 rows × 16 columns = 128 tiles
+    const ROWS = 8;
+    const COLS = 16;
+    const GRID = ROWS * COLS;
+    const TILE_SIZE = Math.min(canvas.width / COLS, canvas.height / ROWS);
+
+    let keys = {};
+    let cursor = { x: 0, y: 0 };
+    let startTime, elapsedTime = 0;
+
+    const TILE_STATES = { GRASS: 0, SOIL: 1, SEED: 2, SPROUT: 3, MATURE: 4 };
+    const COLORS = { 0: "#5ab75e", 1: "#b4855b", 2: "#d1d15c", 3: "#4bb34b", 4: "#2f8f2f" };
+    const TILE_NAMES = { 0: "Grass", 1: "Soil", 2: "Seed", 3: "Sprout", 4: "Mature" };
+
+    let world = [];
+    for (let y = 0; y < ROWS; y++) {
+      world[y] = [];
+      for (let x = 0; x < COLS; x++) {
+        world[y][x] = { state: TILE_STATES.GRASS, timer: 0, lastEvolve: performance.now() };
+      }
+    }
+
+    // Input
+    window.addEventListener("keydown", e => {
+      keys[e.key.toLowerCase()] = true;
+      if (e.key === " ") handleAction("left");
+    });
+    window.addEventListener("keyup", e => keys[e.key.toLowerCase()] = false);
+
+    canvas.addEventListener("click", () => handleAction("left"));
+    canvas.addEventListener("contextmenu", e => { e.preventDefault(); handleAction("right"); });
+
+    // Tile actions
+    function handleAction(button) {
+      let tile = world[cursor.y][cursor.x];
+      if (button === "left") {
+        if (tile.state === TILE_STATES.GRASS) tile.state = TILE_STATES.SOIL;
+        else if (tile.state === TILE_STATES.SOIL) tile.state = TILE_STATES.SEED;
+        else if (tile.state === TILE_STATES.SEED) tile.state = TILE_STATES.SPROUT;
+        else if (tile.state === TILE_STATES.SPROUT) tile.state = TILE_STATES.MATURE;
+        tile.lastEvolve = performance.now();
+      }
+      if (button === "right") {
+        tile.state = TILE_STATES.GRASS;
+        tile.timer = 0;
+        tile.lastEvolve = performance.now();
+      }
+    }
+
+    // Move cursor
+    function moveCursor() {
+      if (keys["w"] || keys["arrowup"]) { cursor.y = Math.max(0, cursor.y - 1); keys["w"] = keys["arrowup"] = false; }
+      if (keys["s"] || keys["arrowdown"]) { cursor.y = Math.min(ROWS - 1, cursor.y + 1); keys["s"] = keys["arrowdown"] = false; }
+      if (keys["a"] || keys["arrowleft"]) { cursor.x = Math.max(0, cursor.x - 1); keys["a"] = keys["arrowleft"] = false; }
+      if (keys["d"] || keys["arrowright"]) { cursor.x = Math.min(COLS - 1, cursor.x + 1); keys["d"] = keys["arrowright"] = false; }
+    }
+
+    // Draw grid
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let y = 0; y < ROWS; y++) {
+        for (let x = 0; x < COLS; x++) {
+          const tile = world[y][x];
+          ctx.fillStyle = COLORS[tile.state];
+          ctx.fillRect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+          ctx.strokeStyle = "#2f6e3f";
+          ctx.lineWidth = 1;
+          ctx.strokeRect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+        }
+      }
+      // Highlight cursor
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 3;
+      ctx.strokeRect(cursor.x * TILE_SIZE, cursor.y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+    }
+
+    // Automatic evolution
+    function evolveTiles() {
+      const now = performance.now();
+      for (let y = 0; y < ROWS; y++) {
+        for (let x = 0; x < COLS; x++) {
+          const tile = world[y][x];
+          if (tile.state >= TILE_STATES.SEED && tile.state < TILE_STATES.MATURE) {
+            if (now - tile.lastEvolve >= 1000) { // 1 second per stage
+              tile.state++;
+              tile.lastEvolve = now;
+            }
+          }
+        }
+      }
+    }
+
+    // Stats & grading
+    let lastFrame = performance.now();
+    let frames = 0;
+    let fps = 0;
+    const TOTAL_TIME = 60;
+
+    function updateStats() {
+      frames++;
+      const now = performance.now();
+      if (now - lastFrame >= 1000) { fps = frames; frames = 0; lastFrame = now; }
+      document.getElementById("fps").textContent = "FPS: " + fps;
+
+      elapsedTime = Math.floor((now - startTime) / 1000);
+      let remaining = Math.max(TOTAL_TIME - elapsedTime, 0);
+      document.getElementById("time").textContent = "Time: " + remaining + "s";
+      document.getElementById("timer-fill").style.width = (remaining / TOTAL_TIME * 100) + "%";
+
+      let grown = 0;
+      for (let y = 0; y < ROWS; y++) { for (let x = 0; x < COLS; x++) { if (world[y][x].state === TILE_STATES.MATURE) grown++; } }
+      document.getElementById("grown").textContent = "Grown: " + grown + "/" + GRID;
+      document.getElementById("tile").textContent = "Tile: " + TILE_NAMES[world[cursor.y][cursor.x].state];
+
+      if (remaining === 0 || grown === GRID) {
+        const percent = Math.floor((grown / GRID) * 100);
+        let grade;
+        if (percent >= 90) grade = "A+";
+        else if (percent >= 80) grade = "A";
+        else if (percent >= 70) grade = "B";
+        else if (percent >= 60) grade = "C";
+        else if (percent >= 44) grade = "D";
+        else grade = "F";
+        document.getElementById("gradeOverlay").style.display = "flex";
+        document.getElementById("gradeText").textContent = (grown === GRID ? "🌾 ALL CROPS GROWN! 🌾" : "⏱ TIME'S UP! ⏱");
+        document.getElementById("gradePercent").textContent = `Grade: ${grade} (${percent}%)`;
+        return true;
+      }
+      return false;
+    }
+
+    // Game loop
+    function gameLoop() {
+      moveCursor();
+      evolveTiles();
+      draw();
+      const finished = updateStats();
+      if (!finished) requestAnimationFrame(gameLoop);
+    }
+
+    // Start
+    function startGame() {
+      document.getElementById("intro").style.display = "none";
+      startTime = performance.now();
+      lastFrame = performance.now();
+      gameLoop();
+    }
+  </script>
+</body>
+
+</html>

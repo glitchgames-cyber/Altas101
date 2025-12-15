@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="config.xsd">
+  <application>
+    <name>India Tech Atlas</name>
+    <version>1.0.0</version>
+    <description>Interactive web application exploring India's technology ecosystem</description>
+    <author>India Tech Atlas Team</author>
+    <license>Educational Use</license>
+  </application>
+  
+  <settings>
+    <theme>
+      <default>auto</default>
+      <options>light, dark, auto</options>
+    </theme>
+    
+    <storage>
+      <primary>localStorage</primary>
+      <backup>sessionStorage</backup>
+      <fallback>memory</fallback>
+    </storage>
+    
+    <api>
+      <base-url>https://yourdomain.com/api</base-url>
+      <timeout>5000</timeout>
+      <retry-attempts>3</retry-attempts>
+    </api>
+    
+    <cache>
+      <enabled>true</enabled>
+      <lifetime>3600</lifetime>
+      <strategy>network-first</strategy>
+    </cache>
+    
+    <features>
+      <pwa>true</pwa>
+      <offline>true</offline>
+      <notifications>false</notifications>
+      <analytics>false</analytics>
+    </features>
+  </settings>
+  
+  <pages>
+    <page>
+      <name>Home</name>
+      <url>index.html</url>
+      <priority>1.0</priority>
+      <enabled>true</enabled>
+    </page>
+    <page>
+      <name>Past Hub</name>
+      <url>past.html</url>
+      <priority>0.8</priority>
+      <enabled>true</enabled>
+    </page>
+    <page>
+      <name>Present Pulse</name>
+      <url>present.html</url>
+      <priority>0.8</priority>
+      <enabled>true</enabled>
+    </page>
+    <page>
+      <name>Future Forge</name>
+      <url>future.html</url>
+      <priority>0.8</priority>
+      <enabled>true</enabled>
+    </page>
+    <page>
+      <name>Games Lab</name>
+      <url>games.html</url>
+      <priority>0.9</priority>
+      <enabled>true</enabled>
+    </page>
+  </pages>
+  
+  <games>
+    <game>
+      <name>3D Memory Matrix</name>
+      <file>memory3d.html</file>
+      <enabled>true</enabled>
+    </game>
+    <game>
+      <name>Lightning Reflex</name>
+      <file>reaction.html</file>
+      <enabled>true</enabled>
+    </game>
+    <game>
+      <name>Circuit Puzzle</name>
+      <file>puzzle.html</file>
+      <enabled>true</enabled>
+    </game>
+    <game>
+      <name>Quantum Collapse</name>
+      <file>impossible.html</file>
+      <enabled>true</enabled>
+    </game>
+    <game>
+      <name>3D Agriculture Farm</name>
+      <file>agriculture.html</file>
+      <enabled>true</enabled>
+    </game>
+  </games>
+  
+  <security>
+    <password-hash>SHA-256</password-hash>
+    <session-timeout>3600</session-timeout>
+    <max-login-attempts>5</max-login-attempts>
+    <lockout-duration>900</lockout-duration>
+  </security>
+  
+  <export>
+    <formats>json, csv, xml, docx, xlsx</formats>
+    <max-size>10MB</max-size>
+    <compression>true</compression>
+  </export>
+</configuration>
+

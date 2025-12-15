@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<games-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="games-data.xsd">
+  <metadata>
+    <last-updated>2024-01-15T00:00:00Z</last-updated>
+    <version>1.0.0</version>
+  </metadata>
+  
+  <games>
+    <game>
+      <id>memory3d</id>
+      <name>3D Memory Matrix</name>
+      <description>Flip 3D cubes to find matching pairs. Spatial memory challenge!</description>
+      <file>memory3d.html</file>
+      <script>memory3d.js</script>
+      <category>memory</category>
+      <difficulty>medium</difficulty>
+      <features>
+        <feature>3D rotating cubes</feature>
+        <feature>Progressive difficulty</feature>
+        <feature>Memory &amp; pattern matching</feature>
+      </features>
+    </game>
+    
+    <game>
+      <id>reaction</id>
+      <name>Lightning Reflex</name>
+      <description>Test your reaction time. Targets appear and disappear fast!</description>
+      <file>reaction.html</file>
+      <script>reaction.js</script>
+      <category>speed</category>
+      <difficulty>easy</difficulty>
+      <features>
+        <feature>Speed &amp; precision</feature>
+        <feature>Increasing difficulty waves</feature>
+        <feature>Real-time scoring</feature>
+      </features>
+    </game>
+    
+    <game>
+      <id>puzzle</id>
+      <name>Circuit Puzzle</name>
+      <description>Connect power to target through a logic grid. Strategic thinking required!</description>
+      <file>puzzle.html</file>
+      <script>puzzle.js</script>
+      <category>puzzle</category>
+      <difficulty>hard</difficulty>
+      <features>
+        <feature>Pathfinding challenge</feature>
+        <feature>Progressive grid sizes</feature>
+        <feature>Hint system included</feature>
+      </features>
+    </game>
+    
+    <game>
+      <id>impossible</id>
+      <name>Quantum Collapse</name>
+      <description>Align hidden states before decoherence destroys the run.</description>
+      <file>impossible.html</file>
+      <script>impossible.js</script>
+      <category>challenge</category>
+      <difficulty>extreme</difficulty>
+      <features>
+        <feature>1-in-11,616 chance per attempt</feature>
+        <feature>Timer + difficulty scaling</feature>
+        <feature>4 parameters to match</feature>
+      </features>
+    </game>
+    
+    <game>
+      <id>agriculture</id>
+      <name>3D Agriculture Farm</name>
+      <description>Minecraft-style 3D farming game. Learn about Indian agriculture while building your farm!</description>
+      <file>agriculture.html</file>
+      <script>agriculture.js</script>
+      <category>simulation</category>
+      <difficulty>medium</difficulty>
+      <features>
+        <feature>3D block-based world</feature>
+        <feature>Plant and harvest crops</feature>
+        <feature>Educational content about Indian farming</feature>
+        <feature>Progressive farming system</feature>
+      </features>
+    </game>
+    
+    <game>
+      <id>innovation</id>
+      <name>Innovation Dice</name>
+      <description>Roll to fuse domains, tech, and missions into unexpected Indian ventures.</description>
+      <file>innovation.html</file>
+      <script>innovation.js</script>
+      <category>creative</category>
+      <difficulty>easy</difficulty>
+      <features>
+        <feature>Domain + tech + mission mashups</feature>
+        <feature>Instant shareable pitches</feature>
+      </features>
+    </game>
+    
+    <game>
+      <id>terms</id>
+      <name>Term Scrambler</name>
+      <description>Unscramble desi tech keywords and keep the streak alive.</description>
+      <file>terms.html</file>
+      <script>terms.js</script>
+      <category>word</category>
+      <difficulty>medium</difficulty>
+      <features>
+        <feature>Indic tech vocabulary</feature>
+        <feature>Timed streak mechanics</feature>
+      </features>
+    </game>
+    
+    <game>
+      <id>policy</id>
+      <name>Policy Maze</name>
+      <description>Choose the right reform sequence to unlock inclusive growth.</description>
+      <file>policy.html</file>
+      <script>policy.js</script>
+      <category>strategy</category>
+      <difficulty>hard</difficulty>
+      <features>
+        <feature>Branching policy puzzles</feature>
+        <feature>Only one path delivers success</feature>
+      </features>
+    </game>
+    
+    <game>
+      <id>launch</id>
+      <name>Launch Window</name>
+      <description>Balance risk vs. reward for a private space launch window.</description>
+      <file>launch.html</file>
+      <script>launch.js</script>
+      <category>strategy</category>
+      <difficulty>hard</difficulty>
+      <features>
+        <feature>Probabilistic launch outcomes</feature>
+        <feature>High stakes, low odds</feature>
+      </features>
+    </game>
+  </games>
+  
+  <categories>
+    <category>
+      <id>memory</id>
+      <name>Memory Games</name>
+      <description>Games that test your memory and recall abilities</description>
+    </category>
+    <category>
+      <id>speed</id>
+      <name>Speed Games</name>
+      <description>Games that test your reaction time and speed</description>
+    </category>
+    <category>
+      <id>puzzle</id>
+      <name>Puzzle Games</name>
+      <description>Logic and problem-solving challenges</description>
+    </category>
+    <category>
+      <id>challenge</id>
+      <name>Challenge Games</name>
+      <description>Extremely difficult games for the brave</description>
+    </category>
+    <category>
+      <id>simulation</id>
+      <name>Simulation Games</name>
+      <description>Real-world simulation and educational games</description>
+    </category>
+    <category>
+      <id>creative</id>
+      <name>Creative Games</name>
+      <description>Games that encourage creativity and innovation</description>
+    </category>
+    <category>
+      <id>word</id>
+      <name>Word Games</name>
+      <description>Language and vocabulary-based games</description>
+    </category>
+    <category>
+      <id>strategy</id>
+      <name>Strategy Games</name>
+      <description>Games requiring strategic thinking and planning</description>
+    </category>
+  </categories>
+</games-data>
+

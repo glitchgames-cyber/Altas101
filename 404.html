@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found • India Tech Atlas</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#00d4ff" />
+    <link rel="stylesheet" href="critical-styles.css" />
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
+    <style>
+      .error-container {
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 3rem 1rem;
+      }
+      
+      .error-code {
+        font-size: 8rem;
+        font-weight: 700;
+        line-height: 1;
+        background: linear-gradient(135deg, var(--accent), #ff7a18);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+      }
+      
+      .error-message {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--fg);
+      }
+      
+      .error-description {
+        color: var(--muted);
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+      
+      .error-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2rem;
+      }
+      
+      .suggested-links {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 2px solid var(--border);
+        width: 100%;
+        max-width: 800px;
+      }
+      
+      .suggested-links h3 {
+        margin-bottom: 1.5rem;
+        color: var(--accent);
+      }
+      
+      .links-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+      
+      .link-card {
+        padding: 1rem;
+        border: 2px solid var(--border);
+        border-radius: 8px;
+        background: var(--card);
+        transition: all 0.2s;
+        text-decoration: none;
+        color: var(--fg);
+        display: block;
+      }
+      
+      .link-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+      
+      .link-card strong {
+        display: block;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-message">Page Not Found</h1>
+        <p class="error-description">
+          Oops! The page you're looking for seems to have wandered off into the digital void.
+          It might have been moved, deleted, or perhaps it never existed in the first place.
+        </p>
+        
+        <div class="error-actions">
+          <a href="index.html" class="btn primary">Go to Home</a>
+          <a href="javascript:history.back()" class="btn secondary">Go Back</a>
+          <a href="search.html" class="btn secondary">Search</a>
+        </div>
+
+        <div class="suggested-links">
+          <h3>Popular Pages</h3>
+          <div class="links-grid">
+            <a href="index.html" class="link-card">
+              <strong>Atlas Home</strong>
+              <span>Main landing page</span>
+            </a>
+            <a href="past.html" class="link-card">
+              <strong>Past Hub</strong>
+              <span>Historical tech milestones</span>
+            </a>
+            <a href="present.html" class="link-card">
+              <strong>Present Pulse</strong>
+              <span>Current tech ecosystem</span>
+            </a>
+            <a href="future.html" class="link-card">
+              <strong>Future Forge</strong>
+              <span>Future tech scenarios</span>
+            </a>
+            <a href="games.html" class="link-card">
+              <strong>Games Lab</strong>
+              <span>Interactive games</span>
+            </a>
+            <a href="blog.html" class="link-card">
+              <strong>Blog</strong>
+              <span>Tech news & updates</span>
+            </a>
+            <a href="resources.html" class="link-card">
+              <strong>Resources</strong>
+              <span>Links & references</span>
+            </a>
+            <a href="help.html" class="link-card">
+              <strong>Help & FAQ</strong>
+              <span>Get assistance</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>404 Error • India Tech Atlas</p>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script>
+      // Log 404 for analytics
+      try {
+        const failures = JSON.parse(localStorage.getItem('404-errors') || '[]');
+        failures.push({
+          url: window.location.href,
+          referrer: document.referrer,
+          timestamp: new Date().toISOString()
+        });
+        localStorage.setItem('404-errors', JSON.stringify(failures.slice(-50))); // Keep last 50
+      } catch (e) {
+        // Ignore storage errors
+      }
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js').catch(() => {});
+      }
+    </script>
+  </body>
+</html>
+

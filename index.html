@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Tech: Past, Present & Future</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="India Tech Atlas" />
+    <meta name="theme-color" content="#00d4ff" />
+    <link rel="stylesheet" href="critical-styles.css" />
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">Experience • Learn • Play</p>
+        <h1>Past, Present & Future of Indian Tech</h1>
+        <p>
+          Journey across decades of innovation—from the early computing labs to
+          today’s startup wave and the moonshots of tomorrow. Explore timelines,
+          dive into insights, and test yourself with interactive games.
+        </p>
+        <div class="hero__actions">
+          <a href="#timeline" class="btn primary">Start Exploring</a>
+          <a href="#games" class="btn secondary">Play Home Games</a>
+          <a href="games.html" class="btn secondary">Visit Games Lab</a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="orb orb--past">Past</div>
+        <div class="orb orb--present">Present</div>
+        <div class="orb orb--future">Future</div>
+      </div>
+    </header>
+
+    <main>
+
+      <section id="insights" class="panel panel--grid">
+        <article>
+          <h3>Past</h3>
+          <p>
+            Pioneering institutions like TIFR and ISRO laid the groundwork for computing,
+            space research, and electronics manufacturing, while IT services began
+            positioning India as the world’s back-office.
+          </p>
+          <p>
+            Public sector labs, IITs, and DoE task forces nurtured component design, language
+            computing, and telecom policies long before venture capital reached the ecosystem.
+            The cooperative model of sharing mainframe time and open academic exchanges defined
+            this era’s collaborative spirit.
+          </p>
+          <ul>
+            <li>1950s: First indigenous analog computers</li>
+            <li>1970s: Department of Electronics formed</li>
+            <li>1980s: Software export zones emerge</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Present</h3>
+          <p>
+            India hosts over 100 unicorns, a thriving developer ecosystem, and
+            massive digital public infrastructure powering finance, health, and education.
+          </p>
+          <p>
+            Startup hubs stretch from Bengaluru to Jaipur, SaaS exports cross $20B, and
+            DPI rails like ONDC and OCEN bring kirana stores, farmers, and MSMEs into the
+            digital mainstream. Global chip giants partner with local fabs as semicon talent
+            pipelines expand.
+          </p>
+          <ul>
+            <li>UPI crossing 10B+ monthly transactions</li>
+            <li>Semiconductor and space startups accelerating</li>
+            <li>India Stack inspiring global policy</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Future</h3>
+          <p>
+            Deep-tech, quantum computing, green engineering, and inclusive AI will
+            shape the next leaps as India aspires to become a product powerhouse.
+          </p>
+          <p>
+            National missions envision moon bases, ocean tech corridors, and gigafactories with
+            circular supply chains. Bharat-scale AI copilots, high-speed 6G grids, and quantum
+            secure networks are expected to redefine productivity for the next billion.
+          </p>
+          <ul>
+            <li>Chandrayaan & Gaganyaan inspire space-tech</li>
+            <li>National Quantum Mission investments</li>
+            <li>AI for Bharat-scale languages</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="data-deck" class="panel">
+        <div class="panel__header">
+          <h2>Data Deck</h2>
+          <p>Hover on tiles to see the evolution of core indicators.</p>
+        </div>
+        <div class="data-grid">
+          <article class="data-card" data-past="₹50 Cr exports" data-future="$100B design focus">
+            <p class="data-card__label">IT Exports</p>
+            <p class="data-card__value">~$245B (2024)</p>
+          </article>
+          <article class="data-card" data-past="2M dial-up users" data-future="1B+ 6G devices">
+            <p class="data-card__label">Internet Users</p>
+            <p class="data-card__value">~850M (2024)</p>
+          </article>
+          <article class="data-card" data-past="Doordarshan-only broadcast" data-future="Spatial internet hubs">
+            <p class="data-card__label">Media & Devices</p>
+            <p class="data-card__value">Smartphones first</p>
+          </article>
+          <article class="data-card" data-past="ISRO’s SLV-3 tests" data-future="Reusable heavy launchers">
+            <p class="data-card__label">Space Tech</p>
+            <p class="data-card__value">PSLV + startups</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="tech-dive" class="panel tech-grid">
+        <div class="panel__header">
+          <h2>Deep Tech Signals</h2>
+          <p>Expanded briefs on the themes reshaping Indian technology.</p>
+        </div>
+        <div class="tech-grid__cards">
+          <article>
+            <h3>Semiconductor Stack</h3>
+            <p>
+              From DLI incentives to OSAT investments in Gujarat, India is stitching together
+              design, fabrication, and packaging capacity with a focus on 28nm and specialty nodes.
+            </p>
+            <ul>
+              <li>Micron’s assembly plant underway</li>
+              <li>SemiconIndia incubations for fabless teams</li>
+              <li>Dedicated RISC-V talent pipelines</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Climate-Tech S-Curve</h3>
+            <p>
+              Green hydrogen corridors, battery intelligence startups, and mobility-as-a-service
+              pilots unlock new unit economics for decarbonization.
+            </p>
+            <ul>
+              <li>Cascade batteries + swapping networks</li>
+              <li>Agri-carbon MRV platforms</li>
+              <li>Blue economy drones + analytics</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Public Digital Infrastructure</h3>
+            <p>
+              India Stack 2.0 (Aadhaar, UPI, ONDC, OCEN, ABDM) is evolving into modular rails
+              that other nations reference for inclusive growth.
+            </p>
+            <ul>
+              <li>Account Aggregator and OCEN for credit</li>
+              <li>ONDC retail and logistics unbundling</li>
+              <li>ABDM health data exchanges at scale</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Space & Defence Startups</h3>
+            <p>
+              Skyroot, Agnikul, Bellatrix, and Pixel accelerate private missions while DRDO and ISRO
+              open facilities for testing and shared infrastructure.
+            </p>
+            <ul>
+              <li>Reusable launch vehicle experiments</li>
+              <li>Hyperspectral imaging constellations</li>
+              <li>Dual-use sensors + avionics supply chains</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+
+      <section id="custom-photos" class="panel picture-panel">
+        <div class="panel__header">
+          <h2>Picture Slots for Every Era</h2>
+          <p>Drop AI renders or real photos to customize the atlas narrative.</p>
+        </div>
+        <div class="picture-slot-grid">
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload past era image">
+              <img src="Pictures/atlas1.png" alt="Past Era slot — think vacuum tubes, oscilloscopes, analog computers">
+            </div>
+          </article>
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload present era image">
+              <img src="Pictures/atlas2.png" alt="Present Pulse slot — highlight unicorn HQs, maker spaces, or DPI rails">
+            </div>
+          </article>
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload future era image">
+              <img src="Pictures/atlas3.png" alt="Future Forge slot — imagine moon bases, quantum labs, or 6G corridors">
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="games" class="panel panel--games">
+        <div class="panel__header">
+          <h2>Interactive Games</h2>
+          <p>Challenge your knowledge and vision of Indian tech.</p>
+        </div>
+        <div class="games-grid">
+          <article class="game" id="timeline-game">
+            <div class="game__header">
+              <h3>Milestone Match</h3>
+              <p>Guess the decade of pivotal Indian tech events.</p>
+            </div>
+            <div class="game__body">
+              <div class="game__timer">
+                <button id="match-start" class="btn primary">Start 90s Run</button>
+                <p id="match-timer">Timer: 90s</p>
+              </div>
+              <p id="match-prompt"></p>
+              <div id="match-options" class="match-options"></div>
+              <button id="match-new" class="btn secondary">New Challenge</button>
+              <p id="match-feedback" class="game__feedback"></p>
+              <p id="match-score" class="game__score">Streak: 0</p>
+            </div>
+          </article>
+        </div>
+        <div class="game-info">
+          <p id="game-info">Play a game to surface contextual insights here.</p>
+        </div>
+      </section>
+
+      <section id="future-lab" class="panel">
+        <div class="panel__header">
+          <h2>Future Lab</h2>
+          <p>Toggle ingredients to simulate India's next big tech leap.</p>
+        </div>
+        <div class="lab">
+          <div class="lab__controls">
+            <label><input type="checkbox" data-impact="ai" checked /> Bharat-scale AI</label>
+            <label><input type="checkbox" data-impact="space" /> Private space launch</label>
+            <label><input type="checkbox" data-impact="quantum" /> Quantum stack</label>
+            <label><input type="checkbox" data-impact="rural" /> Rural innovation grid</label>
+          </div>
+          <div class="lab__output" id="lab-output">
+            Turn the knobs to generate a future scenario.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Crafted for curious minds • Inspired by India’s tech journey</p>
+    </footer>
+
+    <!-- Critical Fallback Systems - Load First -->
+    <script src="critical-fallback.js"></script>
+    <script src="backup-storage.js"></script>
+    <script src="error-recovery.js"></script>
+    <script src="health-check.js"></script>
+    <script src="fallback-system.js"></script>
+    
+    <script src="theme-toggle.js"></script>
+    <script type="module" src="script.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js').catch(() => {});
+      }
+    </script>
+  </body>
+</html>
+

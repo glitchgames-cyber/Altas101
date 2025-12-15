@@ -1,0 +1,57 @@
+{
+  "name": "India Tech Atlas",
+  "short_name": "Tech Atlas",
+  "description": "Explore India's tech ecosystem across past, present, and future eras with interactive games and insights.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#00d4ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%231a1a2e' width='192' height='192'/><text x='96' y='120' font-size='80' font-weight='bold' text-anchor='middle' fill='%2300d4ff' font-family='Space Grotesk'>AT</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%231a1a2e' width='512' height='512'/><text x='256' y='360' font-size='220' font-weight='bold' text-anchor='middle' fill='%2300d4ff' font-family='Space Grotesk'>AT</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><rect fill='%231a1a2e' width='540' height='720'/><text x='270' y='360' font-size='120' font-weight='bold' text-anchor='middle' fill='%2300d4ff' font-family='Space Grotesk'>India Tech Atlas</text></svg>",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    }
+  ],
+  "categories": ["education", "games", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Atlas Home",
+      "short_name": "Home",
+      "description": "View the main atlas",
+      "url": "./index.html",
+      "icons": []
+    },
+    {
+      "name": "Games Lab",
+      "short_name": "Games",
+      "description": "Play interactive games",
+      "url": "./games.html",
+      "icons": []
+    },
+    {
+      "name": "Funding Pulse",
+      "short_name": "Funding",
+      "description": "Guess funding rounds",
+      "url": "./funding.html",
+      "icons": []
+    }
+  ]
+}

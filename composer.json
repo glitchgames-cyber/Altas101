@@ -1,0 +1,30 @@
+{
+  "name": "india-tech-atlas/atlas",
+  "description": "Interactive web application exploring India's technology ecosystem",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "India Tech Atlas Team",
+      "email": "contact@yourdomain.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "ext-pdo": "*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Atlas\\": "src/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "install-db": "php server/install.php"
+  }
+}
+

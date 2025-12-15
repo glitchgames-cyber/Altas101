@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Disallow private/admin areas
+Disallow: /vault.html
+Disallow: /api/
+Disallow: /admin/
+
+# Allow important resources
+Allow: /style.css
+Allow: /critical-styles.css
+Allow: /script.js
+Allow: /games-hub.js
+Allow: /quiz-questions.json
+Allow: /manifest.json
+Allow: /Pictures/
+
+# Crawl delay (optional)
+Crawl-delay: 1
+

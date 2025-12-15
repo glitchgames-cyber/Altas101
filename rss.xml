@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>India Tech Atlas</title>
+    <link>https://yourdomain.com</link>
+    <description>Explore India's tech ecosystem across past, present, and future eras with interactive games and insights.</description>
+    <language>en-IN</language>
+    <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0530</lastBuildDate>
+    <atom:link href="https://yourdomain.com/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>Past Hub: Foundations of Indian Tech</title>
+      <link>https://yourdomain.com/past.html</link>
+      <description>Explore the institutions, policies, and pioneers that seeded India's computing, electronics, and space capabilities.</description>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0530</pubDate>
+      <guid>https://yourdomain.com/past.html</guid>
+    </item>
+    
+    <item>
+      <title>Present Pulse: India's Tech Momentum</title>
+      <link>https://yourdomain.com/present.html</link>
+      <description>Track the living heartbeat of Indian technology—digital public infrastructure, unicorn creation, chipset ambitions, and SaaS champions going global.</description>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0530</pubDate>
+      <guid>https://yourdomain.com/present.html</guid>
+    </item>
+    
+    <item>
+      <title>Future Forge: Imagining India's Next Leap</title>
+      <link>https://yourdomain.com/future.html</link>
+      <description>Craft speculative scenarios from quantum stacks to resilient climate tech. Tune moonshot ingredients and map how Bharat might engineer inclusive breakthroughs.</description>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0530</pubDate>
+      <guid>https://yourdomain.com/future.html</guid>
+    </item>
+    
+    <item>
+      <title>Games Lab: Interactive Indian Tech Playground</title>
+      <link>https://yourdomain.com/games.html</link>
+      <description>Spin up startup mashups, test your instinct on funding numbers, and unscramble desi tech terms. Everything celebrates the creativity powering India's tech boom.</description>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0530</pubDate>
+      <guid>https://yourdomain.com/games.html</guid>
+    </item>
+    
+  </channel>
+</rss>
+

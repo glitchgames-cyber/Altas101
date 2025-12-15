@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lightning Reflex • Games Lab</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .reaction-arena {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        height: 400px;
+        margin: 2rem auto;
+        border: 3px solid var(--border);
+        border-radius: 20px;
+        background: var(--card);
+        overflow: hidden;
+      }
+      
+      .target {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--accent);
+        cursor: pointer;
+        transition: transform 0.1s, opacity 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--fg);
+        font-weight: 700;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 20px rgba(255, 122, 24, 0.4);
+      }
+      
+      .target:hover {
+        transform: scale(1.1);
+      }
+      
+      .target.hit {
+        background: #4dd0e1;
+        box-shadow: 0 4px 20px rgba(77, 208, 225, 0.6);
+        animation: hitPulse 0.3s;
+      }
+      
+      .target.miss {
+        opacity: 0.3;
+        background: #ff7a18;
+      }
+      
+      @keyframes hitPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.3); }
+      }
+      
+      .countdown {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 6rem;
+        font-weight: 700;
+        color: var(--accent);
+        z-index: 10;
+        text-shadow: 0 0 20px rgba(255, 122, 24, 0.8);
+      }
+      
+      .wave-indicator {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: var(--card);
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Speed • Reflex • Precision</p>
+          <h1>Lightning Reflex</h1>
+          <p>
+            Targets appear randomly and disappear quickly! Click them as fast as you can.
+            Each wave gets faster and more challenging. Test your reaction time and precision!
+          </p>
+          <div class="hero__actions">
+            <a class="btn primary" href="games.html">Back to Games Lab</a>
+            <button class="btn secondary" id="reaction-start">Start Game</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel--games">
+        <div class="panel__header">
+          <h2>Reaction Arena</h2>
+          <p>Click targets as they appear. Speed increases with each wave!</p>
+        </div>
+        
+        <div class="game-stats" style="display: flex; justify-content: space-around; margin: 1.5rem 0; flex-wrap: wrap; gap: 1rem;">
+          <div class="stat-item">
+            <div class="stat-value" id="reaction-score">0</div>
+            <div class="stat-label">Score</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="reaction-wave">1</div>
+            <div class="stat-label">Wave</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="reaction-hits">0</div>
+            <div class="stat-label">Hits</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="reaction-misses">0</div>
+            <div class="stat-label">Misses</div>
+          </div>
+        </div>
+
+        <div class="reaction-arena" id="reaction-arena">
+          <div class="countdown" id="countdown" style="display: none;"></div>
+          <div class="wave-indicator">Wave: <span id="wave-display">1</span></div>
+        </div>
+        
+        <p id="reaction-feedback" class="game__feedback" style="text-align: center; margin-top: 1.5rem;"></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Lightning Reflex • How fast can you react?</p>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script src="reaction.js"></script>
+  </body>
+</html>
+

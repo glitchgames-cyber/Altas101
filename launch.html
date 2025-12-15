@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Launch Window • Games Lab</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Launch • Risk • Odds</p>
+          <h1>Launch Window</h1>
+          <p>
+            Private space teams get only three launch commitments before investors pull out.
+            Pick a launch window (1 to 5). Lower risk windows have dismal payload rewards,
+            while higher windows carry better rewards but brutal failure odds.
+          </p>
+          <div class="hero__actions">
+            <a class="btn primary" href="games.html">Back to Games Lab</a>
+            <button class="btn secondary" id="launch-reset">Reset Flight Log</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel--games">
+        <div class="panel__header">
+          <h2>Mission Console</h2>
+          <p>Select a window, lock the launch, and see if the odds favor you.</p>
+        </div>
+        <div class="games-grid">
+          <article class="game">
+            <div class="game__body">
+              <label for="launch-window" class="range-value"
+                >Window choice: <span id="launch-display">3</span></label
+              >
+              <input type="range" id="launch-window" min="1" max="5" value="3" />
+              <p class="range-value" id="launch-details">Loading window data…</p>
+              <button class="btn primary" id="launch-commit">Commit Launch</button>
+              <p id="launch-feedback" class="game__feedback"></p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Flight Log</h2>
+        </div>
+        <div class="era-grid">
+          <article class="era-stat">
+            <span>Successful Payloads</span>
+            <strong id="launch-success">0</strong>
+          </article>
+          <article class="era-stat">
+            <span>Failed Launches</span>
+            <strong id="launch-fail">0</strong>
+          </article>
+          <article class="era-stat">
+            <span>Commitments Left</span>
+            <strong id="launch-attempts">3</strong>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Launch Window • High stakes, low odds</p>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script src="launch.js"></script>
+  </body>
+</html>
+

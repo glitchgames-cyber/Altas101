@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Games Lab • Playful Indian Tech</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#00d4ff" />
+    <link rel="stylesheet" href="critical-styles.css" />
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Play • Remix • Imagine</p>
+          <h1>Games Lab: Interactive Indian Tech Playground</h1>
+          <p>
+            Spin up startup mashups, test your instinct on funding numbers, and unscramble
+            desi tech terms. Everything celebrates the creativity powering India’s tech boom.
+          </p>
+          <div class="hero__actions">
+            <a class="btn primary" href="index.html">Back to Atlas</a>
+            <a class="btn secondary" href="#arcade">Jump to Games</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="arcade" class="panel panel--games">
+        <div class="panel__header">
+          <h2>Arcade Cluster</h2>
+          <p>Each game now lives in its own dedicated studio.</p>
+        </div>
+        <div class="games-grid games-grid--wide">
+          <article class="game">
+            <div class="game__header">
+              <h3>Innovation Dice</h3>
+              <p>Roll to fuse domains, tech, and missions into unexpected Indian ventures.</p>
+            </div>
+            <div class="game__body">
+              <ul>
+                <li>Domain + tech + mission mashups</li>
+                <li>Instant shareable pitches</li>
+              </ul>
+              <a class="btn primary" href="innovation.html">Open Studio</a>
+            </div>
+          </article>
+
+          <article class="game">
+            <div class="game__header">
+              <h3>Term Scrambler</h3>
+              <p>Unscramble desi tech keywords and keep the streak alive.</p>
+            </div>
+            <div class="game__body">
+              <ul>
+                <li>Indic tech vocabulary</li>
+                <li>Timed streak mechanics</li>
+              </ul>
+              <a class="btn primary" href="terms.html">Open Studio</a>
+            </div>
+          </article>
+
+          <article class="game">
+            <div class="game__header">
+              <h3>Policy Maze</h3>
+              <p>Choose the right reform sequence to unlock inclusive growth.</p>
+            </div>
+            <div class="game__body">
+              <ul>
+                <li>Branching policy puzzles</li>
+                <li>Only one path delivers success</li>
+              </ul>
+              <a class="btn primary" href="policy.html">Open Studio</a>
+            </div>
+          </article>
+
+          <article class="game">
+            <div class="game__header">
+              <h3>Launch Window</h3>
+              <p>Balance risk vs. reward for a private space launch window.</p>
+            </div>
+            <div class="game__body">
+              <ul>
+                <li>Probabilistic launch outcomes</li>
+                <li>High stakes, low odds</li>
+              </ul>
+              <a class="btn primary" href="launch.html">Open Studio</a>
+            </div>
+          </article>
+
+          <article class="game">
+            <div class="game__header">
+              <h3>Quantum Collapse</h3>
+              <p>Align hidden states before decoherence destroys the run.</p>
+            </div>
+            <div class="game__body">
+              <ul>
+                <li>1-in-11,616 chance per attempt</li>
+                <li>Timer + difficulty scaling</li>
+                <li>4 parameters to match</li>
+              </ul>
+              <a class="btn primary" href="impossible.html">Open Studio</a>
+            </div>
+          </article>
+
+          <article class="game">
+            <div class="game__header">
+              <h3>3D Memory Matrix</h3>
+              <p>Flip 3D cubes to find matching pairs. Spatial memory challenge!</p>
+            </div>
+            <div class="game__body">
+              <ul>
+                <li>3D rotating cubes</li>
+                <li>Progressive difficulty</li>
+                <li>Memory & pattern matching</li>
+              </ul>
+              <a class="btn primary" href="memory3d.html">Open Studio</a>
+            </div>
+          </article>
+
+          <article class="game">
+            <div class="game__header">
+              <h3>Lightning Reflex</h3>
+              <p>Test your reaction time. Targets appear and disappear fast!</p>
+            </div>
+            <div class="game__body">
+              <ul>
+                <li>Speed & precision</li>
+                <li>Increasing difficulty waves</li>
+                <li>Real-time scoring</li>
+              </ul>
+              <a class="btn primary" href="reaction.html">Open Studio</a>
+            </div>
+          </article>
+
+          <article class="game">
+            <div class="game__header">
+              <h3>Circuit Puzzle</h3>
+              <p>Connect power to target through a logic grid. Strategic thinking required!</p>
+            </div>
+            <div class="game__body">
+              <ul>
+                <li>Pathfinding challenge</li>
+                <li>Progressive grid sizes</li>
+                <li>Hint system included</li>
+              </ul>
+              <a class="btn primary" href="puzzle.html">Open Studio</a>
+            </div>
+          </article>
+
+          <article class="game">
+            <div class="game__header">
+              <h3>3D Agriculture Farm</h3>
+              <p>Minecraft-style 3D farming game. Learn about Indian agriculture while building your farm!</p>
+            </div>
+            <div class="game__body">
+              <ul>
+                <li>3D block-based world</li>
+                <li>Plant and harvest crops</li>
+                <li>Educational content about Indian farming</li>
+                <li>Progressive farming system</li>
+              </ul>
+              <a class="btn primary" href="agriculture.html">Open Studio</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>How to Play</h2>
+          <p>Pick a studio, then return here to hop into the next one.</p>
+        </div>
+        <div class="era-grid">
+          <article class="era-stat">
+            <span>Solo Mode</span>
+            <strong>Each game has its own scoreboard</strong>
+          </article>
+          <article class="era-stat">
+            <span>Share</span>
+            <strong>Capture screens or export snippets</strong>
+          </article>
+          <article class="era-stat">
+            <span>Loop</span>
+            <strong>Come back to Games Lab anytime</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel picture-panel">
+        <div class="panel__header">
+          <h2>Games Lab Picture Slots</h2>
+          <p>Create bespoke cover art or drop photos from your tournaments.</p>
+        </div>
+        <div class="picture-slot-grid">
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload arcade artwork">
+              <img src="Pictures/games1.png" alt="neon joysticks, VR headsets, quiz buzzers">
+            </div>
+          </article>
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload winners photo">
+              <img src="Pictures/games2.png" alt="gamers in an internet cafe">
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Games Lab • Playful experiments on Indian tech</p>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script src="games-data.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js').catch(() => {});
+      }
+    </script>
+  </body>
+</html>
+

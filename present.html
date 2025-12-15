@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Present Pulse • Indian Tech Now</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#00d4ff" />
+    <link rel="stylesheet" href="critical-styles.css" />
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>        
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Scale • Startups • DPI</p>
+          <h1>Present Pulse: India’s Tech Momentum</h1>
+          <p>
+            Track the living heartbeat of Indian technology—digital public infrastructure,
+            unicorn creation, chipset ambitions, and SaaS champions going global.
+          </p>
+          <div class="hero__actions">
+            <a class="btn primary" href="index.html">Back to Atlas</a>
+            <a class="btn secondary" href="#radar">Open Ecosystem Radar</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="radar" class="panel">
+        <div class="panel__header">
+          <h2>Ecosystem Radar</h2>
+          <p>Click on a vector to reveal current traction.</p>
+        </div>
+        <div class="era-grid">
+          <div class="era-nav" id="radar-nav"></div>
+          <div class="era-details" id="radar-detail">
+            Choose a vector to view stats.
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>UPI Wave Simulator</h2>
+          <p>Toggle layers to see what’s powering digital payments.</p>
+        </div>
+        <div class="era-toggle" id="upi-toggle"></div>
+        <div class="era-projection" id="upi-output">
+          Select forces to forecast momentum.
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Live Snapshot</h2>
+          <p>Numbers fueling the present.</p>
+        </div>
+        <div class="era-grid">
+          <article class="era-stat">
+            <span>UPI Monthly Transactions</span>
+            <strong>10B+</strong>
+          </article>
+          <article class="era-stat">
+            <span>Active SaaS Startups</span>
+            <strong>2000+</strong>
+          </article>
+          <article class="era-stat">
+            <span>Deep-Tech Startups</span>
+            <strong>300+</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel picture-panel">
+        <div class="panel__header">
+          <h2>Present Pulse Picture Slots</h2>
+          <p>Drop photos that capture unicorn energy or DPI rollouts.</p>
+        </div>
+        <div class="picture-slot-grid">
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload startup hub image">
+              <img src="Pictures/present1.png" alt="Slot A — incubators, SaaS bays, AI copilots assisting founders">
+            </div>
+          </article>
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload DPI image">
+              <img src="Pictures/present2.png" alt="Slot B — ONDC logistics, UPI QR murals, citizen service kiosks">
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Present Pulse • Tracking India’s tech acceleration</p>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script>
+      const radarVectors = [
+        {
+          title: "Digital Public Infrastructure",
+          summary:
+            "UPI, Aadhaar, ONDC, and Aadhaar-enabled payments weave APIs into governance, finance, and commerce.",
+        },
+        {
+          title: "Product SaaS",
+          summary:
+            "From Freshworks to Zoho and new AI copilots, SaaS exports cross $20B with strong US/EU traction.",
+        },
+        {
+          title: "Semiconductor Missions",
+          summary:
+            "Incentives for fabs, OSAT plants, and chip design accelerators bring partners like Micron and Applied Materials.",
+        },
+        {
+          title: "Space & Defence Startups",
+          summary:
+            "Skyroot, Agnikul, and Pixxel attract global payloads, while private PSLV rideshare missions become routine.",
+        },
+        {
+          title: "EV & Clean-Tech",
+          summary:
+            "Two-wheel EV adoption surges, battery-swapping networks expand, and solar-plus-storage attracts new investments.",
+        },
+      ];
+
+      const radarNav = document.getElementById("radar-nav");
+      const radarDetail = document.getElementById("radar-detail");
+
+      radarVectors.forEach((vector, index) => {
+        const btn = document.createElement("button");
+        btn.textContent = vector.title;
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll("#radar-nav button")
+            .forEach((el) => el.classList.remove("is-active"));
+          btn.classList.add("is-active");
+          radarDetail.innerHTML = `
+            <h3>${vector.title}</h3>
+            <p>${vector.summary}</p>
+          `;
+        });
+        if (index === 0) {
+          btn.classList.add("is-active");
+          radarDetail.innerHTML = `
+            <h3>${vector.title}</h3>
+            <p>${vector.summary}</p>
+          `;
+        }
+        radarNav.appendChild(btn);
+      });
+
+      const upiDrivers = {
+        "Bank Partnerships":
+          "Banks invest in cloud-native switches and reconcile billions of micro-payments seamlessly.",
+        "Fintech UX":
+          "UPI apps gamify onboarding, provide vernacular voice flows, and embed commerce journeys.",
+        "Policy Railguards":
+          "NPCI guidelines on MDR, velocity, and fraud keep trust levels high for mass adoption.",
+        "Merchant Digitization":
+          "QR codes blanket kirana stores, transit, and government counters powering offline-to-online.",
+      };
+
+      const upiToggle = document.getElementById("upi-toggle");
+      const upiOutput = document.getElementById("upi-output");
+
+      Object.entries(upiDrivers).forEach(([driver, text]) => {
+        const btn = document.createElement("button");
+        btn.textContent = driver;
+        btn.addEventListener("click", () => {
+          btn.classList.toggle("is-active");
+          updateUpiNarrative();
+        });
+        upiToggle.appendChild(btn);
+      });
+
+      function updateUpiNarrative() {
+        const active = Array.from(
+          upiToggle.querySelectorAll("button.is-active")
+        ).map((btn) => btn.textContent);
+
+        if (!active.length) {
+          upiOutput.textContent = "Select forces to forecast momentum.";
+          return;
+        }
+
+        const story = active.map((key) => upiDrivers[key]).join(" ");
+        upiOutput.textContent = story;
+      }
+    </script>
+  </body>
+</html>
+

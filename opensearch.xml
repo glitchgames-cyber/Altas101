@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>India Tech Atlas</ShortName>
+  <Description>Search India Tech Atlas - Explore India's technology ecosystem</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">https://yourdomain.com/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://yourdomain.com/search.html?q={searchTerms}"/>
+  <Url type="application/rss+xml" method="get" template="https://yourdomain.com/rss.xml?q={searchTerms}"/>
+  <moz:SearchForm>https://yourdomain.com/search.html</moz:SearchForm>
+  <Language>en-IN</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+</OpenSearchDescription>
+

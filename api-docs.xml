@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-documentation xmlns="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <title>India Tech Atlas API Documentation</title>
+    <version>1.0.0</version>
+    <base-url>https://yourdomain.com/api</base-url>
+    <last-updated>2024-01-15</last-updated>
+  </metadata>
+  
+  <endpoints>
+    <endpoint>
+      <path>/quiz/questions</path>
+      <method>GET</method>
+      <description>Get quiz questions by category</description>
+      <parameters>
+        <parameter>
+          <name>category</name>
+          <type>string</type>
+          <required>false</required>
+          <values>past, present, future, all</values>
+          <default>all</default>
+        </parameter>
+      </parameters>
+      <response>
+        <format>JSON</format>
+        <example>
+          <![CDATA[
+          {
+            "success": true,
+            "data": [
+              {
+                "id": 1,
+                "question": "When was TIFR established?",
+                "options": ["1945", "1950", "1955", "1960"],
+                "correct": 0,
+                "category": "past"
+              }
+            ]
+          }
+          ]]>
+        </example>
+      </response>
+    </endpoint>
+    
+    <endpoint>
+      <path>/quiz/score</path>
+      <method>POST</method>
+      <description>Submit quiz score</description>
+      <parameters>
+        <parameter>
+          <name>score</name>
+          <type>integer</type>
+          <required>true</required>
+        </parameter>
+        <parameter>
+          <name>total</name>
+          <type>integer</type>
+          <required>true</required>
+        </parameter>
+        <parameter>
+          <name>category</name>
+          <type>string</type>
+          <required>false</required>
+        </parameter>
+      </parameters>
+      <response>
+        <format>JSON</format>
+        <example>
+          <![CDATA[
+          {
+            "success": true,
+            "message": "Score saved successfully"
+          }
+          ]]>
+        </example>
+      </response>
+    </endpoint>
+    
+    <endpoint>
+      <path>/entries</path>
+      <method>GET</method>
+      <description>Get logbook entries</description>
+      <parameters>
+        <parameter>
+          <name>limit</name>
+          <type>integer</type>
+          <required>false</required>
+          <default>50</default>
+        </parameter>
+        <parameter>
+          <name>offset</name>
+          <type>integer</type>
+          <required>false</required>
+          <default>0</default>
+        </parameter>
+      </parameters>
+      <response>
+        <format>JSON</format>
+        <example>
+          <![CDATA[
+          {
+            "success": true,
+            "data": [
+              {
+                "id": 1,
+                "name": "Student Name",
+                "className": "Grade 9",
+                "timestamp": "2024-01-15T10:30:00Z"
+              }
+            ],
+            "total": 100
+          }
+          ]]>
+        </example>
+      </response>
+    </endpoint>
+    
+    <endpoint>
+      <path>/entries</path>
+      <method>POST</method>
+      <description>Create new logbook entry</description>
+      <parameters>
+        <parameter>
+          <name>name</name>
+          <type>string</type>
+          <required>true</required>
+        </parameter>
+        <parameter>
+          <name>className</name>
+          <type>string</type>
+          <required>true</required>
+        </parameter>
+      </parameters>
+      <response>
+        <format>JSON</format>
+        <example>
+          <![CDATA[
+          {
+            "success": true,
+            "data": {
+              "id": 123,
+              "name": "Student Name",
+              "className": "Grade 9",
+              "timestamp": "2024-01-15T10:30:00Z"
+            }
+          }
+          ]]>
+        </example>
+      </response>
+    </endpoint>
+    
+    <endpoint>
+      <path>/entries/{id}</path>
+      <method>DELETE</method>
+      <description>Delete logbook entry</description>
+      <parameters>
+        <parameter>
+          <name>id</name>
+          <type>integer</type>
+          <required>true</required>
+          <location>path</location>
+        </parameter>
+      </parameters>
+      <response>
+        <format>JSON</format>
+        <example>
+          <![CDATA[
+          {
+            "success": true,
+            "message": "Entry deleted successfully"
+          }
+          ]]>
+        </example>
+      </response>
+    </endpoint>
+    
+    <endpoint>
+      <path>/stats</path>
+      <method>GET</method>
+      <description>Get application statistics</description>
+      <response>
+        <format>JSON</format>
+        <example>
+          <![CDATA[
+          {
+            "success": true,
+            "data": {
+              "totalEntries": 150,
+              "totalVisits": 1250,
+              "gamesPlayed": 89,
+              "averageScore": 75.5
+            }
+          }
+          ]]>
+        </example>
+      </response>
+    </endpoint>
+    
+    <endpoint>
+      <path>/health</path>
+      <method>GET</method>
+      <description>Health check endpoint</description>
+      <response>
+        <format>JSON</format>
+        <example>
+          <![CDATA[
+          {
+            "status": "ok",
+            "timestamp": "2024-01-15T10:30:00Z",
+            "version": "1.0.0"
+          }
+          ]]>
+        </example>
+      </response>
+    </endpoint>
+  </endpoints>
+  
+  <authentication>
+    <type>None</type>
+    <note>API is currently public. Future versions may require authentication.</note>
+  </authentication>
+  
+  <rate-limiting>
+    <limit>100</limit>
+    <period>hour</period>
+    <note>Rate limit of 100 requests per hour per IP address</note>
+  </rate-limiting>
+  
+  <error-codes>
+    <error>
+      <code>400</code>
+      <message>Bad Request - Invalid parameters</message>
+    </error>
+    <error>
+      <code>404</code>
+      <message>Not Found - Resource does not exist</message>
+    </error>
+    <error>
+      <code>500</code>
+      <message>Internal Server Error</message>
+    </error>
+  </error-codes>
+</api-documentation>
+

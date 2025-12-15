@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Future Forge • Indian Tech Foresight</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Vision • Deep-Tech • Inclusion</p>
+          <h1>Future Forge: Imagining India’s Next Leap</h1>
+          <p>
+            Craft speculative scenarios from quantum stacks to resilient climate tech.
+            Tune moonshot ingredients and map how Bharat might engineer inclusive breakthroughs.
+          </p>
+          <div class="hero__actions">
+            <a class="btn primary" href="index.html">Back to Atlas</a>
+            <a class="btn secondary" href="#scenario">Build a Scenario</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="scenario" class="panel">
+        <div class="panel__header">
+          <h2>Scenario Composer</h2>
+          <p>Pick a catalyst to preview a possible future headline.</p>
+        </div>
+        <div class="era-grid">
+          <div class="era-nav" id="future-nav"></div>
+          <div class="era-details" id="future-detail">
+            Select a catalyst to view a spotlight.
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Moonshot Mixer</h2>
+          <p>Toggle bets, we’ll stitch a combined narrative.</p>
+        </div>
+        <div class="era-toggle" id="moonshot-toggle"></div>
+        <div class="era-projection" id="moonshot-output">
+          Activate bets to generate a forecast.
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Signals Board</h2>
+          <p>Emerging indicators pointing to tomorrow.</p>
+        </div>
+        <div class="era-grid">
+          <article class="era-stat">
+            <span>Quantum Mission Fund</span>
+            <strong>₹6,000 Cr</strong>
+          </article>
+          <article class="era-stat">
+            <span>6G Testbeds</span>
+            <strong>75+ labs</strong>
+          </article>
+          <article class="era-stat">
+            <span>Climate-tech Ventures</span>
+            <strong>500+</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel picture-panel">
+        <div class="panel__header">
+          <h2>Future Forge Picture Slots</h2>
+          <p>Drop renders that visualize moonshots you’re tracking.</p>
+        </div>
+        <div class="picture-slot-grid">
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload moon habitat image">
+              <img src="Pictures/future1.png" alt="lunar habitats, reusable launchpads, autonomous rovers">
+            </div>
+           </article>
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload quantum lab image">
+              <img src="Pictures/future2.png" alt="quantum stacks, photonic chips, cryogenic vaults">
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Future Forge • Co-creating India’s next breakthroughs</p>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script>
+      const catalysts = [
+        {
+          title: "Quantum Native Stack",
+          summary:
+            "Cryogenic control systems from Bengaluru pair with photonic qubits in Pune to deliver secure inter-bank rails.",
+        },
+        {
+          title: "Agri-Robot Swarm",
+          summary:
+            "Low-cost, AI-guided robots built in tier-2 maker labs manage soil health and micro-irrigation for smallholders.",
+        },
+        {
+          title: "Reusable Heavy Launcher",
+          summary:
+            "Private space yards retool PSLV learnings into fully reusable stages, slashing payload costs by 60%.",
+        },
+        {
+          title: "Climate OS Stack",
+          summary:
+            "An open climate-tech stack blends satellite imaging, carbon accounting, and embedded finance for MSMEs.",
+        },
+        {
+          title: "Bharat AI Co-pilots",
+          summary:
+            "Foundational models trained on Indic languages serve as co-pilots for teachers, ASHA workers, and artisans.",
+        },
+      ];
+
+      const futureNav = document.getElementById("future-nav");
+      const futureDetail = document.getElementById("future-detail");
+
+      catalysts.forEach((item, index) => {
+        const btn = document.createElement("button");
+        btn.textContent = item.title;
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll("#future-nav button")
+            .forEach((el) => el.classList.remove("is-active"));
+          btn.classList.add("is-active");
+          futureDetail.innerHTML = `
+            <h3>${item.title}</h3>
+            <p>${item.summary}</p>
+          `;
+        });
+        if (index === 0) {
+          btn.classList.add("is-active");
+          futureDetail.innerHTML = `
+            <h3>${item.title}</h3>
+            <p>${item.summary}</p>
+          `;
+        }
+        futureNav.appendChild(btn);
+      });
+
+      const moonshotImpacts = {
+        "Open Hardware":
+          "RISC-V and chiplet ecosystems empower startups to tape-out domain-specific silicon.",
+        "Green Hydrogen":
+          "Electrolyzer manufacturing clusters in Gujarat drive clean fuel corridors for freight.",
+        "Health AI Mesh":
+          "Federated health records combined with diagnostics AI enable proactive rural care.",
+        "Space Tourism":
+          "Reusable shuttles and high-altitude habitats kickstart astro-tourism ecosystems.",
+        "Blue Economy":
+          "Autonomous drones monitor coasts, enabling sustainable aquaculture and disaster warning.",
+      };
+
+      const moonshotToggle = document.getElementById("moonshot-toggle");
+      const moonshotOutput = document.getElementById("moonshot-output");
+
+      Object.entries(moonshotImpacts).forEach(([bet, text]) => {
+        const btn = document.createElement("button");
+        btn.textContent = bet;
+        btn.addEventListener("click", () => {
+          btn.classList.toggle("is-active");
+          updateMoonshotStory();
+        });
+        moonshotToggle.appendChild(btn);
+      });
+
+      function updateMoonshotStory() {
+        const active = Array.from(
+          moonshotToggle.querySelectorAll("button.is-active")
+        ).map((btn) => btn.textContent);
+
+        if (!active.length) {
+          moonshotOutput.textContent = "Activate bets to generate a forecast.";
+          return;
+        }
+
+        const forecast = active.map((bet) => moonshotImpacts[bet]).join(" ");
+        moonshotOutput.textContent = forecast;
+      }
+    </script>
+  </body>
+</html>
+

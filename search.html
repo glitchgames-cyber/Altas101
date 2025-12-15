@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search • India Tech Atlas</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#00d4ff" />
+    <link rel="stylesheet" href="critical-styles.css" />
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
+    <style>
+      .search-container {
+        max-width: 800px;
+        margin: 2rem auto;
+      }
+      .search-box {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .search-input {
+        flex: 1;
+        padding: 1rem;
+        border: 2px solid var(--border);
+        border-radius: 8px;
+        font-size: 1.1rem;
+        background: var(--card);
+        color: var(--fg);
+      }
+      .search-results {
+        margin-top: 2rem;
+      }
+      .result-item {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        background: var(--card);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .result-item:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+      .result-title {
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+      }
+      .result-url {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+      .result-snippet {
+        color: var(--fg);
+      }
+      .no-results {
+        text-align: center;
+        padding: 3rem;
+        color: var(--muted);
+      }
+      .search-stats {
+        color: var(--muted);
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <a href="search.html">Search</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Find • Discover • Explore</p>
+          <h1>Search India Tech Atlas</h1>
+          <p>
+            Search across all pages, content, and resources to find exactly
+            what you're looking for.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Search</h2>
+        </div>
+        
+        <div class="search-container">
+          <div class="search-box">
+            <input 
+              type="text" 
+              id="search-input" 
+              class="search-input" 
+              placeholder="Search for topics, pages, games..."
+              autocomplete="off"
+            />
+            <button class="btn primary" id="search-btn">Search</button>
+          </div>
+          
+          <div class="search-stats" id="search-stats" style="display: none;"></div>
+          
+          <div class="search-results" id="search-results">
+            <div class="no-results">
+              <p>Enter a search term to find content across the India Tech Atlas.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Search • Find content across India Tech Atlas</p>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script src="search.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js').catch(() => {});
+      }
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>India Tech Atlas - Tech News & Updates</title>
+  <subtitle>Latest news, updates, and insights about India's technology ecosystem</subtitle>
+  <link href="https://yourdomain.com/blog.html" rel="self"/>
+  <link href="https://yourdomain.com"/>
+  <id>https://yourdomain.com/feed.xml</id>
+  <updated>2024-01-15T00:00:00+05:30</updated>
+  <author>
+    <name>India Tech Atlas Team</name>
+    <email>info@yourdomain.com</email>
+  </author>
+  <icon>https://yourdomain.com/favicon.ico</icon>
+  <logo>https://yourdomain.com/logo.png</logo>
+  
+  <entry>
+    <title>India Stack 2.0: The Next Evolution of Digital Public Infrastructure</title>
+    <link href="https://yourdomain.com/blog.html#post-1"/>
+    <id>https://yourdomain.com/blog.html#post-1</id>
+    <updated>2024-01-15T00:00:00+05:30</updated>
+    <published>2024-01-15T00:00:00+05:30</published>
+    <author>
+      <name>Tech Atlas Team</name>
+    </author>
+    <summary>India Stack continues to evolve with new layers including ONDC, OCEN, and Account Aggregator frameworks. These modular rails are inspiring global policy makers.</summary>
+    <category term="DPI" label="Digital Public Infrastructure"/>
+    <category term="Fintech" label="Financial Technology"/>
+    <category term="Policy" label="Policy"/>
+  </entry>
+  
+  <entry>
+    <title>Remembering TIFR: The Birthplace of Indian Computing</title>
+    <link href="https://yourdomain.com/blog.html#post-2"/>
+    <id>https://yourdomain.com/blog.html#post-2</id>
+    <updated>2024-01-10T00:00:00+05:30</updated>
+    <published>2024-01-10T00:00:00+05:30</published>
+    <author>
+      <name>Tech Atlas Team</name>
+    </author>
+    <summary>Tata Institute of Fundamental Research played a crucial role in India's early computing journey, building analog computers for cosmic-ray research in the 1950s.</summary>
+    <category term="History" label="History"/>
+    <category term="Research" label="Research"/>
+    <category term="Computing" label="Computing"/>
+  </entry>
+  
+  <entry>
+    <title>Quantum Computing in India: National Quantum Mission Progress</title>
+    <link href="https://yourdomain.com/blog.html#post-3"/>
+    <id>https://yourdomain.com/blog.html#post-3</id>
+    <updated>2024-01-05T00:00:00+05:30</updated>
+    <published>2024-01-05T00:00:00+05:30</published>
+    <author>
+      <name>Tech Atlas Team</name>
+    </author>
+    <summary>India's National Quantum Mission aims to develop quantum technologies including computing, communication, and sensing. Early progress shows promise.</summary>
+    <category term="Quantum" label="Quantum Computing"/>
+    <category term="Research" label="Research"/>
+    <category term="Future Tech" label="Future Technology"/>
+  </entry>
+  
+  <entry>
+    <title>Indian Unicorns: Crossing the 100 Mark</title>
+    <link href="https://yourdomain.com/blog.html#post-4"/>
+    <id>https://yourdomain.com/blog.html#post-4</id>
+    <updated>2023-12-20T00:00:00+05:30</updated>
+    <published>2023-12-20T00:00:00+05:30</published>
+    <author>
+      <name>Tech Atlas Team</name>
+    </author>
+    <summary>India now hosts over 100 unicorn startups, with sectors like fintech, edtech, and SaaS leading the way. The ecosystem continues to mature.</summary>
+    <category term="Startups" label="Startups"/>
+    <category term="Unicorns" label="Unicorns"/>
+    <category term="Ecosystem" label="Ecosystem"/>
+  </entry>
+  
+  <entry>
+    <title>ISRO's Chandrayaan-3: Lessons for Indian Tech</title>
+    <link href="https://yourdomain.com/blog.html#post-5"/>
+    <id>https://yourdomain.com/blog.html#post-5</id>
+    <updated>2023-12-15T00:00:00+05:30</updated>
+    <published>2023-12-15T00:00:00+05:30</published>
+    <author>
+      <name>Tech Atlas Team</name>
+    </author>
+    <summary>The successful Chandrayaan-3 mission demonstrates India's capability in frugal engineering and space technology, inspiring the broader tech ecosystem.</summary>
+    <category term="Space" label="Space Technology"/>
+    <category term="Innovation" label="Innovation"/>
+    <category term="Engineering" label="Engineering"/>
+  </entry>
+</feed>
+

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help & FAQ • India Tech Atlas</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#00d4ff" />
+    <link rel="stylesheet" href="critical-styles.css" />
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
+    <style>
+      .faq-item {
+        margin-bottom: 1.5rem;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        background: var(--card);
+        overflow: hidden;
+      }
+      .faq-question {
+        padding: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        transition: background 0.2s;
+      }
+      .faq-question:hover {
+        background: var(--bg-alt);
+      }
+      .faq-question::after {
+        content: '+';
+        font-size: 1.5rem;
+        color: var(--accent);
+        transition: transform 0.2s;
+      }
+      .faq-item.active .faq-question::after {
+        transform: rotate(45deg);
+      }
+      .faq-answer {
+        padding: 0 1.5rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s, padding 0.3s;
+      }
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+        padding: 0 1.5rem 1.5rem 1.5rem;
+      }
+      .help-section {
+        margin-bottom: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <a href="help.html">Help</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Support • Guide • FAQ</p>
+          <h1>Help & FAQ</h1>
+          <p>
+            Find answers to common questions and learn how to make the most
+            of India Tech Atlas features.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel help-section">
+        <div class="panel__header">
+          <h2>Getting Started</h2>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I navigate the website?</div>
+          <div class="faq-answer">
+            <p>Use the navigation menu at the top to access different sections:</p>
+            <ul>
+              <li><strong>Atlas Home:</strong> Main landing page with overview</li>
+              <li><strong>Past Hub:</strong> Historical tech milestones</li>
+              <li><strong>Present Pulse:</strong> Current tech ecosystem</li>
+              <li><strong>Future Forge:</strong> Future tech scenarios</li>
+              <li><strong>Games Lab:</strong> Interactive games and challenges</li>
+              <li><strong>Student Logbook:</strong> Track your progress</li>
+            </ul>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I play the games?</div>
+          <div class="faq-answer">
+            <p>Each game has its own page with instructions. Visit the Games Lab to see all available games. Most games work offline and save your progress automatically using localStorage.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I use this offline?</div>
+          <div class="faq-answer">
+            <p>Yes! India Tech Atlas is a Progressive Web App (PWA) that works offline. Once you visit the site, it's cached for offline use. Your progress and data are stored locally in your browser.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel help-section">
+        <div class="panel__header">
+          <h2>Features</h2>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What is the Student Logbook?</div>
+          <div class="faq-answer">
+            <p>The Student Logbook allows you to track your learning progress, save notes, and manage your journey through India Tech Atlas. All data is stored locally in your browser for privacy.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How does the Vault work?</div>
+          <div class="faq-answer">
+            <p>The Vault is a secure storage area protected by a password. You can store important notes, insights, and personal data. The password is hashed using SHA-256 for security.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I export my data?</div>
+          <div class="faq-answer">
+            <p>Yes! You can export your logbook entries and statistics. Visit the Statistics page to export your data as JSON. The Vault also supports data export functionality.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I search for content?</div>
+          <div class="faq-answer">
+            <p>Use the Search page to find content across all pages. You can search by keywords, topics, or page names. The search is instant and works offline.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel help-section">
+        <div class="panel__header">
+          <h2>Technical</h2>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What browsers are supported?</div>
+          <div class="faq-answer">
+            <p>India Tech Atlas works on all modern browsers including Chrome, Firefox, Safari, and Edge. For the best experience, use the latest version of your browser.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Do I need to create an account?</div>
+          <div class="faq-answer">
+            <p>No account is required! All data is stored locally in your browser. This means your data stays private and you don't need to sign up or log in.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Is my data secure?</div>
+          <div class="faq-answer">
+            <p>Yes! All data is stored locally in your browser using localStorage. The Vault uses password hashing for additional security. No data is sent to external servers unless you explicitly use backend features.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I clear my data?</div>
+          <div class="faq-answer">
+            <p>You can clear data from the Statistics page or by clearing your browser's localStorage. Go to your browser settings and clear site data for this website.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel help-section">
+        <div class="panel__header">
+          <h2>Games</h2>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I play the 3D Agriculture Farm?</div>
+          <div class="faq-answer">
+            <p>Click on the canvas to lock your mouse, then use WASD to move, mouse to look around, left-click to place blocks, right-click to remove blocks, and E to harvest crops. Plant seeds on tilled soil and wait for them to grow!</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Are game scores saved?</div>
+          <div class="faq-answer">
+            <p>Yes! Your game scores and progress are automatically saved to localStorage. You can view your statistics on the Statistics page.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I reset a game?</div>
+          <div class="faq-answer">
+            <p>Most games have a reset or new game button. You can also clear your browser's localStorage to reset all game data.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Still Need Help?</h2>
+        </div>
+        <div class="hero__actions">
+          <a href="about.html" class="btn primary">About Us</a>
+          <a href="resources.html" class="btn secondary">Resources</a>
+          <a href="search.html" class="btn secondary">Search</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Help & FAQ • Get support for India Tech Atlas</p>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script>
+      // FAQ accordion functionality
+      document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+          const item = question.parentElement;
+          const isActive = item.classList.contains('active');
+          
+          // Close all items
+          document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+          
+          // Open clicked item if it wasn't active
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      });
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js').catch(() => {});
+      }
+    </script>
+  </body>
+</html>
+

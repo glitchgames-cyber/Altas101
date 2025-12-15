@@ -1,0 +1,351 @@
+================================================================================
+                    INDIA TECH ATLAS - FILE FLOWCHART
+                    Updated: 2025 | File Locations Included
+================================================================================
+
+ROOT DIRECTORY: d:\HGM\
+
+ENTRY POINT
+-----------
+index.html (root)
+    ├── Loads: style.css (root)
+    ├── Loads: script.js (root)
+    │   ├── js/timeline.js (milestone carousel)
+    │   ├── js/quiz.js (quiz game - increased difficulty)
+    │   ├── js/match-game.js (decade matching - increased difficulty)
+    │   ├── js/lab.js (future lab toggles)
+    │   ├── js/ai-stories.js (story generator)
+    │   ├── js/weather.js (weather forecast)
+    │   └── js/utils.js (shared utilities)
+    ├── Loads: theme-toggle.js (root)
+    └── Loads: service-worker.js (root)
+
+
+ERA PAGES
+---------
+past.html / present.html / future.html (root)
+    ├── Loads: style.css (root)
+    ├── Loads: games-hub.js (root, era-specific quizzes)
+    │   └── Fetches: quiz-questions.json (root)
+    └── Loads: theme-toggle.js (root)
+
+
+GAMES HUB
+---------
+games.html (root)
+    ├── Loads: style.css (root)
+    ├── Loads: games-hub.js (root)
+    │   └── Fetches: quiz-questions.json (root)
+    └── Links to:
+        ├── impossible.html (root) → impossible.js (root)
+        │   └── Quantum Collapse: Multiple attempts, difficulty levels with choice
+        ├── memory3d.html (root) → memory3d.js (root)
+        │   └── 3D Memory Matrix: Increased difficulty (more pairs, less time)
+        ├── reaction.html (root) → reaction.js (root)
+        │   └── Lightning Reflex: Increased difficulty (faster targets, stricter accuracy)
+        └── puzzle.html (root) → puzzle.js (root)
+            └── Circuit Puzzle: Increased difficulty (larger grids, fewer hints)
+
+
+AUTHENTICATION & DATA
+---------------------
+login.html (root)
+    ├── Loads: style.css (root)
+    └── Loads: logbook.js (root)
+        ├── Stores to: localStorage (student-logbook-entries)
+        ├── Backup: localStorage (student-logbook-backup-YYYY-MM-DD)
+        └── Archive: localStorage (student-logbook-archive)
+        └── Note: Login details NOT displayed on page (privacy)
+
+vault.html (root)
+    ├── Loads: style.css (root)
+    └── Loads: vault.js (root)
+        ├── Reads from: localStorage (student-logbook-entries)
+        ├── Reads from: localStorage (backup/archive keys)
+        ├── Uses: sessionStorage (vault-authenticated flag)
+        └── Exports: CSV/JSON
+
+
+SPECIALIZED PAGES
+-----------------
+innovation.html (root)
+    ├── Loads: style.css (root)
+    └── Loads: innovation.js (root, idea generator)
+
+launch.html (root)
+    ├── Loads: style.css (root)
+    └── Loads: launch.js (root)
+
+policy.html / terms.html (root)
+    ├── Loads: style.css (root)
+    └── Loads: policy.js / terms.js (root)
+
+
+DATA FILES
+----------
+quiz-questions.json (root)
+    ├── past: [17 questions]
+    ├── present: [17 questions]
+    └── future: [16 questions]
+
+games-data.js (root, game metadata)
+funding-data.js (root, funding quiz data)
+
+
+UTILITY FILES
+-------------
+backup-manager.js (root)
+    ├── Manages backup operations for logbook entries
+    ├── Handles daily backups, archive management
+    ├── Provides restore functionality
+    ├── Supports compressed backups (via backup-compressor.js)
+    ├── Incremental backups to save memory
+    └── Exports: getAllBackups, createManualBackup, createIncrementalBackup, restoreFromBackup
+
+backup-compressor.js (root)
+    ├── Compresses backup data to save memory (30-40% reduction)
+    ├── Entry compression using short keys
+    ├── Incremental backup support (only stores changes)
+    └── Exports: compressEntries, decompressEntries, createIncrementalBackup
+
+logbook-stats.js (root)
+    ├── Provides analytics for student logbook entries
+    ├── Statistics: by class, by date, by student
+    ├── Trend analysis and date range queries
+    └── Exports: getStatistics, getTrendData, exportStatistics
+
+data-migrator.js (root)
+    ├── Handles data import/export operations
+    ├── Supports CSV and JSON formats
+    ├── Data validation and repair
+    └── Exports: exportToFile, importFromFile, validateData
+
+game-stats.js (root)
+    ├── Tracks game performance data
+    ├── Records wins, losses, scores, times
+    ├── Maintains game history
+    └── Exports: recordGameResult, getGameStatsFor, getAllGamesSummary
+
+app-config.js (root)
+    ├── Centralized application configuration
+    ├── Game settings, backup settings, UI settings
+    ├── Feature flags and API endpoints
+    └── Exports: AppConfig object with get/set/load/save methods
+
+data-validator.js (root)
+    ├── Validates and sanitizes data entries
+    ├── Entry validation, duplicate detection
+    ├── Data integrity checks
+    └── Exports: validateEntry, sanitizeEntry, findDuplicates
+
+
+CSS ARCHITECTURE
+----------------
+style.css (root, main stylesheet)
+    ├── css/base.css (variables, reset, body)
+    ├── css/themes.css (light/dark theme)
+    ├── css/layout.css (nav, main, hero, footer)
+    ├── css/components.css (buttons, panels, cards, forms)
+    └── css/games.css (game-specific styles)
+
+critical-styles.css (root, above-the-fold, inline in HTML)
+
+
+SERVICE WORKER
+--------------
+service-worker.js (root)
+    ├── Caches: HTML files (all root HTML)
+    ├── Caches: CSS files (root + css/ directory)
+    ├── Caches: JS files (root + js/ directory)
+    ├── Caches: JSON data files (root)
+    └── Caches: Images from Pictures/ (root/Pictures/)
+
+
+BACKEND FILES (Optional)
+------------------------
+config.php (root) → database.sql (root, if using backend)
+api.php (root) → config.php
+install.php (root) → database.sql
+export-data.php (root) → config.php
+backup-db.php (root) → config.php
+cron-jobs.sql (root, scheduled tasks)
+
+
+DEPLOYMENT
+----------
+htaccess (root, Apache configuration)
+nginx.conf (root, Nginx configuration)
+web.config (root, IIS configuration)
+deploy.sh / deploy.bat (root, deployment scripts)
+manifest.json (root, PWA manifest)
+robots.txt (root, search engine directives)
+sitemap.xml (root, site structure)
+
+
+================================================================================
+DATA FLOW
+================================================================================
+
+1. USER VISITS index.html
+   └── Browser loads style.css → imports all CSS modules
+   └── Browser loads script.js → imports all JS modules
+   └── Modules initialize when DOM ready
+
+2. QUIZ INTERACTION
+   └── quiz.js fetches quiz-questions.json
+   └── User answers → score tracked in memory
+   └── Feedback displayed via updateGameInfo()
+
+3. LOGIN FLOW
+   └── User enters name/class in login.html
+   └── data-validator.js validates entry data
+   └── logbook.js stores to localStorage (student-logbook-entries)
+   └── backup-manager.js creates daily backup (student-logbook-backup-YYYY-MM-DD)
+   └── backup-compressor.js can create compressed backups (saves 30-40% memory)
+   └── backup-compressor.js can create incremental backups (only stores changes)
+   └── backup-manager.js maintains archive copy (student-logbook-archive)
+   └── logbook-stats.js updates statistics
+   └── Login details NOT displayed on page (privacy protection)
+   └── Vault can read from localStorage + backups (if authenticated)
+
+4. VAULT ACCESS
+   └── User enters password → vault.js hashes with SHA-256
+   └── Compares with stored hash in sessionStorage
+   └── If match → displays entries from localStorage
+   └── User can export (CSV/JSON via data-migrator.js) or search/filter
+   └── backup-manager.js provides restore functionality
+   └── logbook-stats.js provides analytics and statistics
+
+5. THEME SWITCHING
+   └── theme-toggle.js toggles body.light-theme class
+   └── CSS variables update via themes.css
+   └── Preference saved to localStorage
+
+6. SERVICE WORKER
+   └── Registers on first visit
+   └── Caches all assets on install
+   └── Serves from cache when offline
+   └── Updates cache on new version
+
+
+================================================================================
+MODULE DEPENDENCIES
+================================================================================
+
+script.js
+    ├── timeline.js (standalone)
+    ├── quiz.js → utils.js
+    ├── match-game.js → utils.js
+    ├── lab.js (standalone)
+    ├── ai-stories.js (standalone)
+    ├── weather.js (requires Chart.js CDN)
+    └── utils.js (shared)
+
+games-hub.js (standalone, fetches quiz-questions.json)
+
+vault.js (standalone, uses localStorage/sessionStorage)
+    └── Can use: data-migrator.js, backup-manager.js
+
+logbook.js (standalone, uses localStorage)
+    └── Can use: backup-manager.js, logbook-stats.js, data-validator.js
+
+Utility modules (can be imported by any module):
+    ├── backup-manager.js (backup operations)
+    ├── logbook-stats.js (analytics)
+    ├── data-migrator.js (import/export)
+    ├── game-stats.js (game tracking)
+    ├── app-config.js (configuration)
+    └── data-validator.js (validation)
+
+
+================================================================================
+STORAGE USAGE
+================================================================================
+
+localStorage:
+    ├── student-logbook-entries (primary storage)
+    ├── student-logbook-backup-YYYY-MM-DD (daily backups)
+    ├── student-logbook-backup-manual-* (manual backups)
+    ├── student-logbook-comp-* (compressed backups, saves 30-40% memory)
+    ├── student-logbook-inc-* (incremental backups, only stores changes)
+    ├── student-logbook-archive (long-term archive)
+    ├── game-statistics (game performance data)
+    ├── backup-metadata (backup tracking info)
+    ├── app-config (application configuration)
+    ├── vaultPasswordHash (hashed password)
+    └── themePreference (light/dark)
+
+sessionStorage:
+    └── vault-authenticated (authentication flag)
+
+
+================================================================================
+EXTERNAL DEPENDENCIES
+================================================================================
+
+CDN Resources:
+    ├── Chart.js (for weather charts)
+    └── Google Fonts: Space Grotesk
+
+API:
+    └── Open-Meteo API (weather.js)
+
+
+================================================================================
+GAME DIFFICULTY SETTINGS
+================================================================================
+
+All games (except impossible.html) have increased difficulty:
+
+1. Circuit Puzzle (puzzle.js)
+   - 50 levels (increased from unlimited)
+   - Larger grid sizes (up to 8x8, was 7x7)
+   - Fewer hints per level (can go to 0 at high levels)
+   - More complex path requirements (up to 70% cells cleared)
+   - Time limits starting from level 10 (decreasing with level)
+
+2. 3D Memory Matrix (memory3d.js)
+   - 100 levels (increased from unlimited)
+   - More pairs per level (up to 12 pairs, was 10)
+   - Faster flip timeout (minimum 300ms, was 500ms)
+   - Time limits starting from level 15 (decreasing with level)
+
+3. Lightning Reflex (reaction.js)
+   - 20 waves (increased from 6)
+   - Faster target spawn rates (down to 15ms)
+   - Shorter target lifetimes (down to 50ms)
+   - Increasing accuracy requirements (75% to 90% by wave)
+   - More targets per wave (up to 65 targets)
+   - Dynamic accuracy checks (60% to 75% minimum)
+
+4. Milestone Match (match-game.js)
+   - 50 levels (new level system)
+   - Shorter time limits (90s, reduces by 5s per level)
+   - Level up every 5 correct answers
+   - Lose level on wrong answer
+   - More challenging decade matching
+   - Stricter scoring
+
+5. Quiz Raga (quiz.js)
+   - 50 levels (new level system)
+   - Shorter time limits (90s, reduces by 3s per level)
+   - Level up every 3 correct answers
+   - Lose level on wrong answer
+   - Points increase with level (base 8 + level bonus)
+   - Penalties increase with level
+   - More difficult questions
+   - Stricter scoring
+
+6. Quantum Collapse (impossible.js) - UNCHANGED DIFFICULTY
+   - Multiple attempts (configurable)
+   - Difficulty levels with user choice
+   - Progressive difficulty scaling
+
+7. GAME STATISTICS TRACKING
+   - game-stats.js tracks all game results
+   - Records wins, losses, scores, best times
+   - Maintains history for analytics
+   - Can be exported for analysis
+
+================================================================================
+

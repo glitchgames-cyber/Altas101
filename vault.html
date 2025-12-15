@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secure Vault • Student Logins</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#00d4ff" />
+    <link rel="stylesheet" href="critical-styles.css" />
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html" aria-current="page">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">Private • Encrypted • Yours</p>
+          <h1>Secure Student Vault</h1>
+          <p>
+            Enter the mentor password to decrypt the locally stored logbook. Once inside, you can review every record with
+            serial numbers, classes, and a running total of entries.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel" id="vault-gate">
+        <div class="panel__header">
+          <h2>Password Check</h2>
+          <p>The vault stays locked on every visit until you validate the mentor password.</p>
+        </div>
+        <form class="logbook-form" id="vault-auth-form">
+          <label>
+            Mentor Password
+            <input type="password" id="vault-password" placeholder="Enter your private password" required />
+          </label>
+          <button type="submit" class="btn primary">Unlock Vault</button>
+        </form>
+        <p class="logbook-alert" id="vault-error" role="status"></p>
+      </section>
+
+      <section class="panel" id="vault-data" hidden>
+        <div class="panel__header">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h2>Complete Entry List</h2>
+              <p>Only you can see this data. It never leaves this browser.</p>
+            </div>
+            <button type="button" id="vault-lock-btn" class="btn secondary" aria-label="Lock vault">
+              🔒 Lock Vault
+            </button>
+          </div>
+        </div>
+        <div class="vault-meta" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+          <p>Total logins captured: <strong id="vault-total">0</strong></p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button type="button" id="vault-export-docx-btn" class="btn btn--small secondary">📄 Export DOCX</button>
+            <button type="button" id="vault-export-xlsx-btn" class="btn btn--small secondary">📊 Export XLSX</button>
+            <button type="button" id="vault-export-xml-btn" class="btn btn--small secondary">📋 Export XML</button>
+            <button type="button" id="vault-export-btn" class="btn btn--small secondary">📥 Export CSV</button>
+            <button type="button" id="vault-export-json-btn" class="btn btn--small secondary">📥 Export JSON</button>
+          </div>
+        </div>
+        <div style="margin-bottom: 1rem;">
+          <label for="vault-search" style="display: block; margin-bottom: 0.5rem;">Search entries:</label>
+          <input type="text" id="vault-search" placeholder="Search by name or class..." style="width: 100%; max-width: 400px; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border); background: var(--card); color: var(--fg);" />
+        </div>
+        <div class="vault-table-wrapper">
+          <table class="vault-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Student’s Name</th>
+                <th>Class</th>
+                <th>Logged On</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="vault-table-body">
+              <tr>
+                <td colspan="5">No entries yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel picture-panel">
+        <div class="panel__header">
+          <h2>Vault Picture Slots</h2>
+          <p>Keep visual evidence handy for observations or showcase moments.</p>
+        </div>
+        <div class="picture-slot-grid">
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload progress board photo">
+              <img src="Pictures/vault1.png" alt="Pin a progress board, attendance sheet, or classroom panorama here">
+            </div>
+          </article>
+          <article class="picture-slot">
+            <div class="picture-slot__frame" role="group" aria-label="Upload celebration photo">
+              <img src="Pictures/vault2.png" alt="Use this slot for celebration pictures or certificates that back your notes">
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Secure Vault • Keep this password safe</p>
+    </footer>
+
+    <!-- Export Libraries -->
+    <script src="https://unpkg.com/docx@7.8.2/build/index.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+    
+    <script src="theme-toggle.js"></script>
+    <script type="module">
+      import { exportVaultToDocx } from './export-docx.js';
+      import { exportVaultToXlsx } from './export-xlsx.js';
+      import { exportVaultToXML } from './export-xml.js';
+      
+      document.getElementById('vault-export-docx-btn')?.addEventListener('click', exportVaultToDocx);
+      document.getElementById('vault-export-xlsx-btn')?.addEventListener('click', exportVaultToXlsx);
+      document.getElementById('vault-export-xml-btn')?.addEventListener('click', exportVaultToXML);
+    </script>
+    <script src="vault.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js').catch(() => {});
+      }
+    </script>
+  </body>
+</html>
+

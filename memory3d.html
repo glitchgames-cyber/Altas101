@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Memory Matrix • Games Lab</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .memory-container {
+        perspective: 1000px;
+        perspective-origin: center center;
+        margin: 2rem auto;
+        max-width: 600px;
+      }
+      
+      .cube-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        transform-style: preserve-3d;
+      }
+      
+      .memory-cube {
+        aspect-ratio: 1;
+        position: relative;
+        transform-style: preserve-3d;
+        cursor: pointer;
+        transition: transform 0.6s;
+      }
+      
+      .memory-cube.flipped {
+        transform: rotateY(180deg);
+      }
+      
+      .memory-cube.matched {
+        opacity: 0.3;
+        pointer-events: none;
+      }
+      
+      .cube-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 700;
+        border: 2px solid var(--border);
+      }
+      
+      .cube-front {
+        background: var(--card);
+        color: var(--muted);
+      }
+      
+      .cube-back {
+        background: var(--accent);
+        color: var(--fg);
+        transform: rotateY(180deg);
+      }
+      
+      .cube-back.pattern-1 { background: linear-gradient(135deg, #ff7a18, #ffb84d); }
+      .cube-back.pattern-2 { background: linear-gradient(135deg, #4dd0e1, #00d4ff); }
+      .cube-back.pattern-3 { background: linear-gradient(135deg, #9b59b6, #e74c3c); }
+      .cube-back.pattern-4 { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+      .cube-back.pattern-5 { background: linear-gradient(135deg, #f39c12, #e67e22); }
+      .cube-back.pattern-6 { background: linear-gradient(135deg, #3498db, #2980b9); }
+      .cube-back.pattern-7 { background: linear-gradient(135deg, #e91e63, #c2185b); }
+      .cube-back.pattern-8 { background: linear-gradient(135deg, #00bcd4, #0097a7); }
+      
+      .game-stats {
+        display: flex;
+        justify-content: space-around;
+        margin: 1.5rem 0;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      
+      .stat-item {
+        text-align: center;
+      }
+      
+      .stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--accent);
+      }
+      
+      .stat-label {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="logo" href="index.html">India Tech Atlas</a>
+      <nav class="site-nav__links">
+        <a href="index.html">Atlas Home</a>
+        <a href="past.html">Past Hub</a>
+        <a href="present.html">Present Pulse</a>
+        <a href="future.html">Future Forge</a>
+        <a href="games.html">Games Lab</a>
+        <a href="login.html">Student Logbook</a>
+        <button class="theme-slider" id="theme-toggle-btn" role="switch" aria-label="Toggle theme" aria-checked="false">
+          <span class="theme-slider__track">
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+            <span class="theme-slider__thumb" aria-hidden="true"></span>
+            <span class="theme-slider__icon" aria-hidden="true"></span>
+          </span>
+          <span class="sr-only">Toggle between dark and light themes</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="era-main">
+      <section class="hero hero--sub">
+        <div class="hero__content">
+          <p class="eyebrow">3D • Memory • Pattern</p>
+          <h1>3D Memory Matrix</h1>
+          <p>
+            Flip cubes to find matching pairs in this 3D memory challenge. The cubes rotate in 3D space,
+            and you must remember patterns across multiple flips. Difficulty increases with each level!
+          </p>
+          <div class="hero__actions">
+            <a class="btn primary" href="games.html">Back to Games Lab</a>
+            <button class="btn secondary" id="memory-reset">New Game</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel--games">
+        <div class="panel__header">
+          <h2>Memory Challenge</h2>
+          <p>Click cubes to flip and find matching pairs. Remember the patterns!</p>
+        </div>
+        
+        <div class="game-stats">
+          <div class="stat-item">
+            <div class="stat-value" id="memory-level">1</div>
+            <div class="stat-label">Level</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="memory-moves">0</div>
+            <div class="stat-label">Moves</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="memory-pairs">0</div>
+            <div class="stat-label">Pairs Found</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="memory-time">0</div>
+            <div class="stat-label">Time (s)</div>
+          </div>
+        </div>
+
+        <div class="memory-container">
+          <div class="cube-grid" id="cube-grid"></div>
+        </div>
+        
+        <p id="memory-feedback" class="game__feedback" style="text-align: center; margin-top: 1.5rem;"></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>3D Memory Matrix • Test your spatial memory</p>
+    </footer>
+
+    <script src="theme-toggle.js"></script>
+    <script src="memory3d.js"></script>
+  </body>
+</html>
+

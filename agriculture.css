@@ -1,0 +1,209 @@
+/* agriculture.css - UI and layout */
+:root {
+    --bg: #07121a;
+    --panel: rgba(255, 255, 255, 0.04);
+    --accent: #2ecc71;
+    --muted: #9aa8b2;
+    --hotbar-bg: rgba(10, 10, 12, 0.6);
+}
+
+/* Global page */
+html,
+body {
+    margin: 0;
+    height: 100%;
+    background: linear-gradient(180deg, #87CEEB 0%, #041826 100%);
+    font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+    color: #eaf6ff;
+    overflow: hidden;
+}
+
+/* Canvas full-screen */
+canvas#glcanvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    outline: none;
+    background: linear-gradient(180deg, #87CEEB 0%, #082233 100%);
+}
+
+/* Small panels */
+.panel {
+    position: fixed;
+    left: 12px;
+    top: 12px;
+    padding: 8px 10px;
+    background: var(--panel);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 13px;
+    z-index: 40;
+}
+
+/* Feedback text */
+.feedback {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 16px;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 8px 14px;
+}
+
+/* Hotbar */
+#hotbar {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 45;
+    background: var(--hotbar-bg);
+    padding: 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Slot */
+.slot {
+    width: 56px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    text-align: center;
+    line-height: 46px;
+    font-size: 13px;
+    color: #fff;
+    user-select: none;
+    cursor: pointer;
+}
+
+.slot:hover {
+    transform: translateY(-2px);
+    transition: transform 120ms ease;
+}
+
+.slot.active {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--accent);
+}
+
+/* XP bar */
+#xpBar {
+    position: fixed;
+    bottom: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    z-index: 45;
+}
+
+#xpFill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #2ecc71, #00d4ff);
+    border-radius: 8px
+}
+
+/* Crosshair */
+#crosshair {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    margin: -9px 0 0 -9px;
+    border-radius: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    z-index: 46;
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.06);
+    pointer-events: none;
+    transition: transform 120ms ease, opacity 200ms ease;
+}
+
+#crosshair.pulse {
+    transform: scale(1.15);
+    box-shadow: 0 0 26px rgba(46, 204, 113, 0.8);
+}
+
+/* crop HUD */
+#cropHUD {
+    position: fixed;
+    left: 50%;
+    top: 36%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 46;
+}
+
+#cropFill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ffc857, #ff6b6b)
+}
+
+/* hidden UI until start */
+.ui-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: all 240ms ease;
+}
+
+.ui-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* chatbot UI (kept minimal) */
+.chatbot-toggle {
+    position: fixed;
+    right: 14px;
+    bottom: 18px;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.chatbot-panel {
+    position: fixed;
+    right: 14px;
+    bottom: 72px;
+    width: 320px;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 8px;
+    border-radius: 8px;
+    z-index: 50;
+    display: none;
+    color: #fff;
+}
+
+.chatbot-panel.open {
+    display: block;
+}
+
+/* responsive tweaks */
+@media (max-width:720px) {
+    .slot {
+        width: 44px;
+        font-size: 12px;
+    }
+
+    #xpBar {
+        width: 180px;
+    }
+}
