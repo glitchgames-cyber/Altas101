@@ -1,0 +1,95 @@
+/* Game-specific styles */
+.panel--games .games-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.game-info {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  border: 1px dashed var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+}
+
+.games-grid--wide {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.game {
+  background: var(--card);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.game__header h3 {
+  margin: 0;
+}
+
+.quiz-options,
+.match-options {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.quiz-options button,
+.match-options button {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--fg);
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease, border 0.2s ease;
+}
+
+.quiz-options button:hover,
+.match-options button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.game__feedback {
+  min-height: 1.5rem;
+  font-weight: 600;
+}
+
+.game__timer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.game__timer p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.game input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.range-value {
+  color: var(--muted);
+}
+
+.game input[type="text"] {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--fg);
+}
+
